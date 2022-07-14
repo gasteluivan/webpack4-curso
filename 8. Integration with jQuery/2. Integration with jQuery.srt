@@ -1,0 +1,199 @@
+1
+00:00:00,590 --> 00:00:04,640
+In this video I'm going to integrate Jake Query into wetback.
+
+2
+00:00:04,640 --> 00:00:11,100
+For those of you quote never use Jake wording this is a fast small and feature reached javascript library.
+
+3
+00:00:11,180 --> 00:00:13,790
+It can make a lot of things much simpler.
+
+4
+00:00:13,790 --> 00:00:18,770
+For example things like Don't manipulation event handling animation etc..
+
+5
+00:00:18,830 --> 00:00:20,980
+What's more it works in each and every browser.
+
+6
+00:00:21,000 --> 00:00:24,960
+I know you can learn more about Jake worry if you go to the website.
+
+7
+00:00:24,980 --> 00:00:29,760
+Jake dot com let's not have a look at our current application.
+
+8
+00:00:29,860 --> 00:00:32,860
+We have a single page application with the heading and a button.
+
+9
+00:00:32,860 --> 00:00:33,460
+Hello world.
+
+10
+00:00:33,940 --> 00:00:37,150
+If I click on the button it displays some text underneath.
+
+11
+00:00:39,490 --> 00:00:43,490
+So far be great that everyone here you when you let jealous creep in this video.
+
+12
+00:00:43,600 --> 00:00:49,180
+I would like to rewrite the hedging component using trickery and then we can compare this to Gordon's
+
+13
+00:00:49,470 --> 00:00:54,690
+first version using when you like Javascript and the second version using J query.
+
+14
+00:00:54,860 --> 00:00:56,590
+First I need to install Jacquard.
+
+15
+00:00:56,840 --> 00:00:59,890
+There is a possibility to reinstall January as NPM package
+
+16
+00:01:05,530 --> 00:01:05,800
+now.
+
+17
+00:01:05,830 --> 00:01:07,070
+January is installed.
+
+18
+00:01:07,320 --> 00:01:11,990
+I am using minus minus safe option because tickler is a production dependency.
+
+19
+00:01:13,340 --> 00:01:19,240
+Now when we have checked were installed let's import it I will go to the in component because I want
+
+20
+00:01:19,240 --> 00:01:21,050
+to rewrite this component using Jaguar
+
+21
+00:01:26,220 --> 00:01:28,950
+so no I will import Jan at the top of the file.
+
+22
+00:01:37,290 --> 00:01:40,800
+Now we have dollar variable imported from Jaguar library.
+
+23
+00:01:40,860 --> 00:01:47,470
+Let's modify the component in order to use a query instead of funny like Javascript so here you go using
+
+24
+00:01:47,520 --> 00:01:54,850
+document create element which is when you like Javascript and I will write it to dollar sign and here
+
+25
+00:01:54,850 --> 00:02:01,570
+if you need to specify HDMI I'll take each one and these basically is doing the same as document grade
+
+26
+00:02:01,590 --> 00:02:05,530
+element but it returns and requiring object here.
+
+27
+00:02:05,550 --> 00:02:11,820
+So now we need to rewrite the second line which is document quality selector and these can also replaced
+
+28
+00:02:11,820 --> 00:02:20,230
+with a dollar sign but without this angle brackets so these do search and find a body DOM element inside
+
+29
+00:02:20,260 --> 00:02:22,620
+our page.
+
+30
+00:02:22,650 --> 00:02:24,130
+Now let's go to the next line.
+
+31
+00:02:24,150 --> 00:02:30,880
+And here we have each one vote in our demo and these we can rewrite trajectory as well.
+
+32
+00:02:31,350 --> 00:02:39,670
+So each one is a joke very object no and this object has text method so I can write here.
+
+33
+00:02:39,690 --> 00:02:45,400
+Text this is a method and insight I will pass on our stream.
+
+34
+00:02:46,950 --> 00:02:50,230
+And the last line and be also rewritten.
+
+35
+00:02:50,540 --> 00:02:59,220
+Body is I take very object and it has a similar method to apply and child what it is called append and
+
+36
+00:02:59,240 --> 00:03:01,950
+it basically does absolutely the same as a brand child.
+
+37
+00:03:04,040 --> 00:03:05,560
+It seems we are done for now.
+
+38
+00:03:05,690 --> 00:03:07,640
+Let's have a look at our code.
+
+39
+00:03:07,760 --> 00:03:11,290
+It looks more concise now but still works the same way as before.
+
+40
+00:03:12,390 --> 00:03:13,840
+Is it better than before.
+
+41
+00:03:13,840 --> 00:03:16,360
+For some people yes for some people no.
+
+42
+00:03:16,480 --> 00:03:19,690
+There are pros and cons in each approach use January.
+
+43
+00:03:19,780 --> 00:03:23,580
+You can write less code and it looks more concise.
+
+44
+00:03:23,700 --> 00:03:29,190
+On the other hand you need to include Jake Query in your javascript bundle and this means additional
+
+45
+00:03:29,250 --> 00:03:30,510
+85 kilobytes
+
+46
+00:03:33,580 --> 00:03:38,950
+another benefit of Jake worry is that there are tons of security plugins on the internet which can do
+
+47
+00:03:38,950 --> 00:03:40,670
+everything you can imagine.
+
+48
+00:03:40,780 --> 00:03:47,130
+If you want to use any of these plugins you must have regularly installed.
+
+49
+00:03:47,240 --> 00:03:50,230
+Now let's run it back and check our page in the browser.
+
+50
+00:04:01,180 --> 00:04:05,480
+As you can see our page still works the same way it is before but now we are using Jacquard.

@@ -1,0 +1,309 @@
+0
+1
+00:00:00,240 --> 00:00:04,980
+Quite often we need to create Web applications completely from scratch and we have to create all of
+1
+
+2
+00:00:04,980 --> 00:00:06,880
+the components by ourselves.
+2
+
+3
+00:00:06,960 --> 00:00:08,900
+But it is not always the case.
+3
+
+4
+00:00:08,910 --> 00:00:12,040
+Sometimes we can use already existing libraries.
+4
+
+5
+00:00:12,060 --> 00:00:17,000
+This video is about one of the most popular front end component libraries in the world.
+5
+
+6
+00:00:17,070 --> 00:00:19,430
+Bootstrap. To be more precise,
+6
+
+7
+00:00:19,440 --> 00:00:23,360
+this video is about how to use bootstrap together with webpack.
+7
+
+8
+00:00:23,490 --> 00:00:29,250
+For those of you who never used bootstrap it is an open source toolkit for developing with
+8
+
+9
+00:00:29,310 --> 00:00:31,080
+HTML, CSS, and JavaScript.
+9
+
+10
+00:00:31,080 --> 00:00:37,890
+It allows you to build responsive mobile first projects or quickly create prototypes for your ideas.
+10
+
+11
+00:00:37,890 --> 00:00:44,500
+It includes responsive grid system, extensive prebuild components and powerful plugins built on jQuery.
+11
+
+12
+00:00:45,240 --> 00:00:46,890
+You can learn more about bootstrap
+12
+
+13
+00:00:46,890 --> 00:00:51,230
+on its official website getbootstrap dot com.
+13
+
+14
+00:00:51,330 --> 00:00:53,970
+First let's have a look at our current project.
+14
+
+15
+00:00:54,000 --> 00:00:59,390
+We have a single page application with a heading and a button "hello world". When we click on the button,
+15
+
+16
+00:00:59,400 --> 00:01:01,990
+it shows the text "Hello world" below.
+16
+
+17
+00:01:02,880 --> 00:01:06,840
+We'd like to include some bootstrap components on this page.
+17
+
+18
+00:01:06,840 --> 00:01:08,900
+First we need to install bootstrap.
+18
+
+19
+00:01:08,910 --> 00:01:14,050
+There is a possibility to install bootstrap as an NPM package and include it inside our package.json.
+19
+
+20
+00:01:14,060 --> 00:01:25,410
+So I am going into my terminal and typing npm install bootstrap --save. We are using 
+20
+
+21
+00:01:25,410 --> 00:01:30,420
+--save option here because we need bootstrap to be included in the resulting bundle.
+21
+
+22
+00:01:30,570 --> 00:01:36,630
+If we used --save-dev option, then bootstrap would be also installed inside node modules
+22
+
+23
+00:01:36,660 --> 00:01:44,630
+as a project dependency, but it would not be included in the resulting bundle. Bootstrap depends on
+23
+
+24
+00:01:44,650 --> 00:01:46,130
+jQuery and proper dot js.
+24
+
+25
+00:01:46,210 --> 00:01:52,510
+So we need to install these libraries as well.
+25
+
+26
+00:01:52,580 --> 00:01:57,130
+Now when we have bootstrap installed, let's include it inside our index.js file.
+26
+
+27
+00:01:57,130 --> 00:02:03,890
+I am going to my editor. index.js, and what we need to do here is import bootstrap.
+27
+
+28
+00:02:09,910 --> 00:02:10,310
+This way
+28
+
+29
+00:02:10,310 --> 00:02:12,310
+we include javascript from bootstrap.
+29
+
+30
+00:02:12,370 --> 00:02:17,650
+We also need to include css. There are actually two ways to include css from bootstrap into our
+30
+
+31
+00:02:17,650 --> 00:02:18,390
+project.
+31
+
+32
+00:02:18,490 --> 00:02:21,680
+First option is to import precompiled sass.
+32
+
+33
+00:02:21,730 --> 00:02:28,330
+This option allows you to customize bootstrap to your needs and use the source files as part of your
+33
+
+34
+00:02:28,330 --> 00:02:30,400
+project's bundling process.
+34
+
+35
+00:02:30,400 --> 00:02:36,940
+This option requires a bit of additional work in order to set up. Second option is to import already
+35
+
+36
+00:02:36,990 --> 00:02:39,190
+compiled ready to use css.
+36
+
+37
+00:02:39,310 --> 00:02:41,920
+It is the easy option and we will use it in this video.
+37
+
+38
+00:02:42,130 --> 00:02:44,950
+So let's import our ready to use css from bootstrap.
+38
+
+39
+00:02:48,540 --> 00:02:48,810
+Now
+39
+
+40
+00:02:48,820 --> 00:02:53,440
+Let's go to our page template and add a couple of bootstrap components on our page.
+40
+
+41
+00:02:59,600 --> 00:03:01,950
+I will add an alert and a dropdown.
+41
+
+42
+00:03:01,970 --> 00:03:03,530
+First let's add an alert.
+42
+
+43
+00:03:07,120 --> 00:03:13,510
+I will add it inside the body tag. And now let's add a dropdown as well.
+43
+
+44
+00:03:18,850 --> 00:03:21,650
+I would like to add some simple styling to our dropdown.
+44
+
+45
+00:03:21,730 --> 00:03:24,190
+Therefore I will put a custom class on it.
+45
+
+46
+00:03:31,680 --> 00:03:34,190
+Now let's add some styles for our dropdown.
+46
+
+47
+00:03:35,440 --> 00:03:41,210
+We'll create an SCSS file for our index page and call it index dot SCSS.
+47
+
+48
+00:03:48,880 --> 00:03:51,460
+It will contain some simple positioning  styles.
+48
+
+49
+00:03:54,690 --> 00:04:03,120
+So here I am specifying my dropdown class and these are simple styles. Let's import our styles inside
+49
+
+50
+00:04:03,120 --> 00:04:11,570
+the index dot J S file.
+50
+
+51
+00:04:11,630 --> 00:04:16,730
+Now it seems everything is ready. Lets run npm run build in the terminal and check what we
+51
+
+52
+00:04:16,730 --> 00:04:17,960
+have in the browser.
+52
+
+53
+00:04:19,760 --> 00:04:20,920
+I am going to the terminal.
+53
+
+54
+00:04:25,270 --> 00:04:26,980
+Here we can run npm run build.
+54
+
+55
+00:04:30,830 --> 00:04:33,410
+Let's wait a couple of seconds.
+55
+
+56
+00:04:33,580 --> 00:04:35,480
+It seems our build is ready.
+56
+
+57
+00:04:35,560 --> 00:04:41,840
+Now let's start our application.
+57
+
+58
+00:04:41,940 --> 00:04:49,390
+It says application is running in port 3000. Now let's go to our browser and check it. I will refresh
+58
+
+59
+00:04:49,390 --> 00:04:49,960
+my page.
+59
+
+60
+00:04:53,480 --> 00:05:00,740
+And here we see our page with the alert from bootstrap here and with a dropdown component from bootstrap.
+60
+
+61
+00:05:00,740 --> 00:05:09,130
+And if we click on our dropdown component, we can see some dropdown items inside. So in this video we
+61
+
+62
+00:05:09,140 --> 00:05:11,460
+have learned how to use bootstrap together with webpack.

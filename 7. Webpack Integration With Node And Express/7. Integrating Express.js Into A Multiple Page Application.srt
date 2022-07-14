@@ -1,0 +1,179 @@
+0
+1
+00:00:00,720 --> 00:00:05,660
+In this video we will learn how to integrate express.js framework into a multiple page application.
+1
+
+2
+00:00:05,670 --> 00:00:08,780
+It is very similar to what we did with a single page application.
+2
+
+3
+00:00:08,940 --> 00:00:14,630
+But now we need to handle several pages. In this video we will be using code from the Section 6 
+3
+
+4
+00:00:14,640 --> 00:00:20,240
+where we created webpack configuration for a multiple page application. So don't be surprised when you see hello-world.js
+4
+
+5
+00:00:20,240 --> 00:00:25,090
+and kiwi.js here instead of index .JS file.
+5
+
+6
+00:00:25,200 --> 00:00:28,000
+Let's go through some of the files we'll use in this video.
+6
+
+7
+00:00:28,020 --> 00:00:29,810
+First let's have a look at the hello world.js.
+7
+
+8
+00:00:29,810 --> 00:00:33,500
+You should be already familiar with this file.
+8
+
+9
+00:00:33,540 --> 00:00:37,350
+The only thing here is that we need to remove the line about React.
+9
+
+10
+00:00:37,350 --> 00:00:39,340
+We don't need this line anymore.
+10
+
+11
+00:00:39,390 --> 00:00:43,370
+Now let's have a look at kiwi.js file.
+11
+
+12
+00:00:43,490 --> 00:00:47,340
+We have the same line about React here, and we also don't need it here as well.
+12
+
+13
+00:00:48,620 --> 00:00:54,230
+We also have server.JS file. We will be using the same code as we did when we talked about single page
+13
+
+14
+00:00:54,230 --> 00:00:58,400
+applications. But now we need to handle two pages instead of one.
+14
+
+15
+00:00:58,460 --> 00:01:01,350
+So we need to create two routes instead of one.
+15
+
+16
+00:01:01,370 --> 00:01:05,270
+First I will change the URL of our existing route to be hello world.
+16
+
+17
+00:01:11,650 --> 00:01:15,860
+And I will also change the path to html file to relate to 
+17
+
+18
+00:01:15,860 --> 00:01:16,480
+hello world.html.
+18
+
+19
+00:01:23,620 --> 00:01:26,100
+Now I will just copy this route and adjust it
+19
+
+20
+00:01:31,870 --> 00:01:32,340
+first
+20
+
+21
+00:01:32,350 --> 00:01:42,360
+I will change the url to be /kiwi/ and then I will adjust our path to html file to point to the
+21
+
+22
+00:01:42,480 --> 00:01:43,620
+to kiwi.html page.
+22
+
+23
+00:01:48,130 --> 00:01:50,960
+we have already installed express.js in the previous videos.
+23
+
+24
+00:01:50,980 --> 00:01:54,630
+So here I'll skip this step and that's all we need to do.
+24
+
+25
+00:01:54,640 --> 00:01:56,910
+Let's check now how it works in the browser.
+25
+
+26
+00:01:56,920 --> 00:01:59,410
+But first let's build our application.
+26
+
+27
+00:02:07,160 --> 00:02:18,150
+It was a typo there.
+27
+
+28
+00:02:18,260 --> 00:02:26,710
+Now I need to start the application. npm start.
+28
+
+29
+00:02:26,770 --> 00:02:29,500
+It says that application is running on port 3000.
+29
+
+30
+00:02:29,530 --> 00:02:37,540
+So let's go to our browser. and I'll paste a URL in the navigation bar which will be 
+30
+
+31
+00:02:37,590 --> 00:02:39,570
+http://localhost:3000/hello-world/
+31
+
+32
+00:02:42,430 --> 00:02:47,130
+and now we get our hello world page here. And it works perfectly.
+32
+
+33
+00:02:47,880 --> 00:02:52,540
+And if I change route to be /kiwi/,
+33
+
+34
+00:02:56,300 --> 00:02:58,390
+it will go to our kiwi page.
+34
+
+35
+00:02:58,790 --> 00:03:01,460
+It seems everything looks really good. In this video
+35
+
+36
+00:03:01,490 --> 00:03:05,480
+we have successfully learned how to handle multiple pages with Express framework.

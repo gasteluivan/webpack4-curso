@@ -1,0 +1,55 @@
+1
+00:00:00,570 --> 00:00:06,510
+At this point we already have a configurations for both single page applications and multiple page applications
+
+2
+00:00:07,050 --> 00:00:08,780
+as a result of our webpage build.
+
+3
+00:00:08,820 --> 00:00:13,800
+We have demo files is all the assets included in the case of a single page application.
+
+4
+00:00:13,800 --> 00:00:17,790
+We have only one HMO filed in the case of a multiple page application.
+
+5
+00:00:17,790 --> 00:00:22,530
+We have several HMO files each file corresponds to a page on our website.
+
+6
+00:00:22,560 --> 00:00:28,750
+However usually people don't just put HMO files somewhere on the internet when they want to publish
+
+7
+00:00:28,760 --> 00:00:29,850
+their Web site.
+
+8
+00:00:29,850 --> 00:00:36,030
+Well sometimes they do but in most cases people create some kind of a backend or a web server in order
+
+9
+00:00:36,030 --> 00:00:38,530
+to serve the content to the users.
+
+10
+00:00:38,640 --> 00:00:43,370
+In this section we will learn how to create such a back end and use it for our application.
+
+11
+00:00:43,380 --> 00:00:49,620
+It doesn't matter which technology to use while creating such a backhand you can use no GSM BHP Python
+
+12
+00:00:49,710 --> 00:00:53,010
+Ruby Java and any other technology of your choice.
+
+13
+00:00:53,010 --> 00:00:56,580
+In this course we will use energy as an expert as James framework.
+
+14
+00:00:56,670 --> 00:00:57,770
+So let's get started.

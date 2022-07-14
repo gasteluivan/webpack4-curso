@@ -1,0 +1,149 @@
+0
+1
+00:00:00,520 --> 00:00:05,580
+In the previous video we learned how to display our own html page when we get a request to the 
+1
+
+2
+00:00:05,590 --> 00:00:06,510
+home page url
+2
+
+3
+00:00:06,850 --> 00:00:11,660
+But we did not teach express how to handle requests to static files like css.
+3
+
+4
+00:00:11,810 --> 00:00:14,560
+Let us teach express how to handle static files.
+4
+
+5
+00:00:14,570 --> 00:00:22,340
+Now basically what we need to do is just send the contents of this css file back to the browser every
+5
+
+6
+00:00:22,340 --> 00:00:24,800
+time we get a request for this css file.
+6
+
+7
+00:00:24,800 --> 00:00:27,440
+In fact we need to do that for all static files.
+7
+
+8
+00:00:27,440 --> 00:00:31,690
+We have Javascript, css, images, fonts, and so on.
+8
+
+9
+00:00:31,850 --> 00:00:36,640
+For this we will create a separate route specifically designed to handle static files.
+9
+
+10
+00:00:36,800 --> 00:00:42,470
+As you remember, all our static files are located in the dist folder. And whenever we get a request for
+10
+
+11
+00:00:42,470 --> 00:00:47,210
+a static file, we will just take this file from our dist folder and send it back.
+11
+
+12
+00:00:52,430 --> 00:00:55,360
+We will define a separate url for all our static files
+12
+
+13
+00:00:58,930 --> 00:01:03,090
+And we will use Express.static method to serve static files.
+13
+
+14
+00:01:07,480 --> 00:01:13,360
+We would need to specify an absolute path to our dist folder.
+14
+
+15
+00:01:16,540 --> 00:01:21,760
+path.resolve, __dirname, and relative path to the dist folder.
+15
+
+16
+00:01:24,620 --> 00:01:30,290
+Now all requests from urls that start with slash static will go directly to our dist folder.
+16
+
+17
+00:01:30,290 --> 00:01:35,330
+What we need to do is to include slash static in all our static files inside the index.html.
+17
+
+18
+00:01:38,890 --> 00:01:45,280
+As you can see URLs to our javascript and css files don't include static yet but we don't need to add
+18
+
+19
+00:01:45,510 --> 00:01:52,030
+static manually to all those links. We can just change the publicPath option inside our webpack configuration
+19
+
+20
+00:01:52,300 --> 00:01:53,470
+and / static.
+20
+
+21
+00:01:53,470 --> 00:01:56,800
+will be added automatically to all our generated assets.
+21
+
+22
+00:01:56,800 --> 00:02:01,710
+So I'm going to our production configuration now. And here
+22
+
+23
+00:02:01,730 --> 00:02:13,200
+We just need to change public path. Let's now check our browser.
+23
+
+24
+00:02:13,650 --> 00:02:16,430
+But before that you would need to rebuild our application.
+24
+
+25
+00:02:24,400 --> 00:02:31,130
+It's done and now I need to start the application.
+25
+
+26
+00:02:31,250 --> 00:02:33,970
+Let's go to the browser now and check what is there.
+26
+
+27
+00:02:38,060 --> 00:02:42,650
+I am refreshing  my page and now you see our application is working again.
+27
+
+28
+00:02:42,650 --> 00:02:48,620
+If I click on the button, the red text appears. Great! Now webpack knows how to handle static files and
+28
+
+29
+00:02:48,650 --> 00:02:50,750
+our small Web site works perfectly.
+29
+
+30
+00:02:50,750 --> 00:02:55,330
+In this video we have learned how to handle static files via Express framework.

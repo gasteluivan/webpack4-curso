@@ -1,0 +1,214 @@
+0
+1
+00:00:00,360 --> 00:00:04,920
+In this video we'll integrate express.js into our single page application.
+1
+
+2
+00:00:04,920 --> 00:00:10,490
+What we'll do now is create a simple web server using Node.js and Express.js framework.
+2
+
+3
+00:00:10,580 --> 00:00:12,730
+which will show some dummy content in the browser
+3
+
+4
+00:00:12,750 --> 00:00:19,680
+whenever user loads our web application. Let's create a file called server.js inside our src folder.
+4
+
+5
+00:00:26,690 --> 00:00:30,170
+In this file we'll put our backend code.
+5
+
+6
+00:00:30,230 --> 00:00:39,140
+First we need to require Express.
+6
+
+7
+00:00:39,270 --> 00:00:42,330
+Now we need to create an instance of an express.
+7
+
+8
+00:00:47,130 --> 00:00:48,730
+I will call the variable app.
+8
+
+9
+00:00:54,930 --> 00:00:59,880
+What we need to do now, is to create a route on which our application will react.
+9
+
+10
+00:01:04,100 --> 00:01:09,690
+I will specify a simple home page route which is a slash. And as a second argument,
+10
+
+11
+00:01:09,820 --> 00:01:11,280
+I will specify a function.
+11
+
+12
+00:01:17,450 --> 00:01:25,130
+And this function will be called every time an express application gets a request to this route.
+12
+
+13
+00:01:25,130 --> 00:01:25,690
+Inside this function
+13
+
+14
+00:01:25,690 --> 00:01:28,390
+we will send some dummy content back to the browser.
+14
+
+15
+00:01:28,390 --> 00:01:34,900
+We will use res variable which is an instance of response object, and call a method send on it.
+15
+
+16
+00:01:34,970 --> 00:01:45,950
+We will pass some dummy content as an argument to this method.
+16
+
+17
+00:01:45,990 --> 00:01:53,370
+Now we need to start our server and make it listen for some port, so the application can actually be
+17
+
+18
+00:01:53,370 --> 00:01:56,080
+running and listening to incoming connections.
+18
+
+19
+00:01:56,160 --> 00:02:01,050
+For this we will use our app instance and we will call a method
+19
+
+20
+00:02:01,080 --> 00:02:03,490
+listen here.
+20
+
+21
+00:02:03,520 --> 00:02:05,850
+We need to specify a port on which
+21
+
+22
+00:02:05,890 --> 00:02:09,100
+this web application will be listening for new requests.
+22
+
+23
+00:02:09,130 --> 00:02:19,520
+I will specify port 3000 and as a second argument we can specify a function. And this function
+23
+
+24
+00:02:19,520 --> 00:02:22,920
+will be invoked when the application starts.
+24
+
+25
+00:02:22,940 --> 00:02:26,540
+We can output some information into the console when application starts.
+25
+
+26
+00:02:30,120 --> 00:02:31,920
+So I will just write "Application is running
+26
+
+27
+00:02:35,740 --> 00:02:45,750
+on http://localhost:3000".
+27
+
+28
+00:02:45,900 --> 00:02:47,590
+This will be enough.
+28
+
+29
+00:02:48,000 --> 00:02:50,220
+What we need to do now is we need to install express.
+29
+
+30
+00:02:53,000 --> 00:02:57,680
+So in the terminal I'm typing npm install express --save.
+30
+
+31
+00:03:01,210 --> 00:03:07,450
+In order to conveniently run our server, let's add a new script our package.json. I'm going to the package.json
+31
+
+32
+00:03:07,450 --> 00:03:14,760
+and I'm looking here for the scripts. Here they are.
+32
+
+33
+00:03:19,160 --> 00:03:23,800
+So I will just add the new script here. I will name it start.
+33
+
+34
+00:03:27,460 --> 00:03:35,530
+And I'll simply write here something like 'node src/server.js'. This will start our
+34
+
+35
+00:03:35,530 --> 00:03:42,670
+server. Now let's run our new script into the terminal.
+35
+
+36
+00:03:45,580 --> 00:03:51,940
+And it says that our application is running on http://localhost:3000. Let's check it in the
+36
+
+37
+00:03:51,940 --> 00:03:56,410
+browser. I'm going to the browser and pasting  this link.
+37
+
+38
+00:03:59,360 --> 00:03:59,760
+Yeah.
+38
+
+39
+00:04:00,050 --> 00:04:02,990
+And now we have some dummy content in the browser.
+39
+
+40
+00:04:02,990 --> 00:04:06,980
+It seems that our Express application works! In this video
+40
+
+41
+00:04:07,100 --> 00:04:12,470
+we have successfully created a simple backend using Node.js and express.js framework that displays
+41
+
+42
+00:04:12,500 --> 00:04:17,060
+some dummy content when we visit our website in the browser. In the next video
+42
+
+43
+00:04:17,060 --> 00:04:21,350
+we will learn how to display our own html page instead of a plain text there.

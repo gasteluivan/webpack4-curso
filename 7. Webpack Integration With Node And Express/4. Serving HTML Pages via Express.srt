@@ -1,0 +1,294 @@
+0
+1
+00:00:00,360 --> 00:00:05,730
+In the previous video we have successfully created a simple backend using Node.js and Express.js framework
+1
+
+2
+00:00:05,990 --> 00:00:09,730
+that displays some dummy content when we visit our web page in the browser.
+2
+
+3
+00:00:09,900 --> 00:00:16,110
+In this video we will modify our backend in order to display our own html page instead of a plain
+3
+
+4
+00:00:16,110 --> 00:00:17,300
+text there.
+4
+
+5
+00:00:17,570 --> 00:00:23,450
+First we need to replace dummy content that we have now with our html page that we created before.
+5
+
+6
+00:00:23,450 --> 00:00:23,790
+For this,
+6
+
+7
+00:00:23,800 --> 00:00:29,230
+we will read the contents of our html file into a string and then send this string to the browser.
+7
+
+8
+00:00:29,250 --> 00:00:30,390
+Let's do it.
+8
+
+9
+00:00:30,390 --> 00:00:33,970
+First we need to get an absolute path to our index.html.
+9
+
+10
+00:00:34,080 --> 00:00:38,230
+For this we will use already familiar Node module which is called path.
+10
+
+11
+00:00:38,360 --> 00:00:43,230
+We already used it before when we needed to specify an absolute path to our output file in the webpack
+11
+
+12
+00:00:43,260 --> 00:00:56,330
+configuration. I will remove this for now and instead I will get the path to html file.
+12
+
+13
+00:01:01,890 --> 00:01:03,650
+equals path.resolve...
+13
+
+14
+00:01:05,960 --> 00:01:16,210
+And here as a first argument we will specify __dirname, which is our current directory, and as a second argument
+14
+
+15
+00:01:16,210 --> 00:01:20,660
+will specify relative path to our index.html.
+15
+
+16
+00:01:25,390 --> 00:01:28,860
+This path is relative to our current directory.
+16
+
+17
+00:01:28,920 --> 00:01:32,950
+So now we need to import path node module at the beginning of the file.
+17
+
+18
+00:01:33,030 --> 00:01:37,530
+We don't need to install it via the NPM because path is a built in module
+18
+
+19
+00:01:37,560 --> 00:01:37,820
+inside
+19
+
+20
+00:01:37,830 --> 00:01:38,280
+Node.js.
+20
+
+21
+00:01:47,890 --> 00:01:53,900
+Now when we know path to the index.html, we need to read its contents into a variable. For this we
+21
+
+22
+00:01:53,900 --> 00:01:56,750
+will use another built in module which is called fs.
+22
+
+23
+00:02:12,400 --> 00:02:18,010
+readFileSync method reads the contents of the file synchronously and returns the content of the
+23
+
+24
+00:02:18,010 --> 00:02:18,630
+file.
+24
+
+25
+00:02:19,810 --> 00:02:24,310
+As a first argument we will specify path to html file,
+25
+
+26
+00:02:27,930 --> 00:02:37,740
+and as a second argument we need to specify encoding which in our case is UTF 8.
+26
+
+27
+00:02:37,770 --> 00:02:41,880
+This means that the contents of the file is stored in Unicode.
+27
+
+28
+00:02:41,880 --> 00:02:47,100
+Now we need to send this content to the browser and we'll use already familiar method send on the
+28
+
+29
+00:02:47,100 --> 00:02:48,310
+response object.
+29
+
+30
+00:02:52,760 --> 00:02:54,850
+And we'll send content from
+30
+
+31
+00:02:54,840 --> 00:02:55,320
+html file.
+31
+
+32
+00:03:00,480 --> 00:03:04,300
+Let's now rebuild our application and check what we have in the browser.
+32
+
+33
+00:03:18,390 --> 00:03:20,120
+Now we need to start our application.
+33
+
+34
+00:03:24,270 --> 00:03:25,890
+And I will open it in the browser.
+34
+
+35
+00:03:32,900 --> 00:03:33,210
+OK.
+35
+
+36
+00:03:33,220 --> 00:03:33,980
+We got reference error.
+36
+
+37
+00:03:33,980 --> 00:03:37,580
+"fs is not defined" because we forgot to import it.
+37
+
+38
+00:03:38,290 --> 00:03:50,720
+Let's import it here. And now we need to rebuild our application again.
+38
+
+39
+00:03:59,030 --> 00:04:07,360
+And start it. I'm going to the browser again, reload this page, and now we got nothing.
+39
+
+40
+00:04:07,370 --> 00:04:09,620
+We've got an empty page here without any content.
+40
+
+41
+00:04:09,860 --> 00:04:12,790
+Let's investigate why it doesn't work.
+41
+
+42
+00:04:12,850 --> 00:04:15,620
+First, let's view the html source of our page.
+42
+
+43
+00:04:20,350 --> 00:04:22,960
+Well the source of the page is html.
+43
+
+44
+00:04:23,020 --> 00:04:27,880
+And if you look closely you will notice that it is our html.
+44
+
+45
+00:04:27,880 --> 00:04:29,300
+Here is our bundle.js
+45
+
+46
+00:04:29,340 --> 00:04:35,470
+and here is our styles.css. So why do we have an empty page?
+46
+
+47
+00:04:35,470 --> 00:04:44,130
+Let's go to the browser console.
+47
+
+48
+00:04:44,360 --> 00:04:46,500
+It turns out that we have a bunch of errors.
+48
+
+49
+00:04:46,510 --> 00:04:53,340
+Browser complains that it cannot load our css and JavaScript.
+49
+
+50
+00:04:53,340 --> 00:04:58,820
+That's because we did not teach express how to load our css or JavaScript.
+50
+
+51
+00:04:58,890 --> 00:05:06,200
+We just told express that every time it gets a request to the home URL, which is this slash here,
+51
+
+52
+00:05:06,510 --> 00:05:12,300
+it needs to send the content of html file back to the browser. And express does it correctly.
+52
+
+53
+00:05:12,300 --> 00:05:14,910
+It sends html content back to a browser.
+53
+
+54
+00:05:14,910 --> 00:05:16,810
+We have seen it right now.
+54
+
+55
+00:05:16,800 --> 00:05:23,790
+But in that html there are links to css and JavaScript. And when Express gets a request for css
+55
+
+56
+00:05:23,790 --> 00:05:26,470
+file, it doesn't know what to do with this request.
+56
+
+57
+00:05:26,790 --> 00:05:32,400
+We simply did not tell express yet what it should do when it gets a request to a css file. In the next
+57
+
+58
+00:05:32,400 --> 00:05:32,810
+video,
+58
+
+59
+00:05:32,820 --> 00:05:35,240
+we will teach express how to handle static files.

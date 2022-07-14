@@ -1,0 +1,295 @@
+1
+00:00:00,510 --> 00:00:05,060
+In this video you're going to learn how to use custom font with web back.
+
+2
+00:00:05,070 --> 00:00:10,740
+I'm going to use the single page version of the application as a starting point for this video.
+
+3
+00:00:11,520 --> 00:00:17,160
+If you want to repeat all the steps on your local computer you would need to clone this repository
+
+4
+00:00:24,200 --> 00:00:27,050
+and then switch to this branch.
+
+5
+00:00:27,080 --> 00:00:36,540
+Don't forget to run npm install after you switch branches.
+
+6
+00:00:36,600 --> 00:00:41,030
+Currently we are using default funds for everything on this page.
+
+7
+00:00:41,040 --> 00:00:47,550
+Often times web applications look much better when they utilize custom fonts instead of the default
+
+8
+00:00:47,550 --> 00:00:48,520
+ones.
+
+9
+00:00:48,540 --> 00:00:53,370
+I'm going to overwrite is a default font with some sound more appealing to the users
+
+10
+00:01:02,390 --> 00:01:05,840
+the first link on the Google results page is the right one
+
+11
+00:01:12,820 --> 00:01:15,280
+on this page you can see houses want.
+
+12
+00:01:15,310 --> 00:01:18,900
+Looks like you can even type here your own text.
+
+13
+00:01:22,260 --> 00:01:52,070
+Now I need to download this font and put it inside my application.
+
+14
+00:01:52,110 --> 00:01:55,800
+These are the files containing my custom font.
+
+15
+00:01:55,860 --> 00:01:59,550
+I don't need all of the variations for my application.
+
+16
+00:01:59,700 --> 00:02:01,580
+I will need only three of them.
+
+17
+00:02:18,580 --> 00:02:23,410
+As you can see all of the files use the F format.
+
+18
+00:02:23,560 --> 00:02:27,930
+I want to provide a couple of more formats to my customers.
+
+19
+00:02:27,940 --> 00:02:33,250
+There is a website which you can use in order to convert your font to other formats as well.
+
+20
+00:02:45,630 --> 00:02:47,900
+Here I can choose which formats I need
+
+21
+00:02:53,600 --> 00:02:54,020
+now.
+
+22
+00:02:54,030 --> 00:02:56,790
+I can drag my font files from my computer
+
+23
+00:03:08,060 --> 00:03:08,550
+next.
+
+24
+00:03:08,570 --> 00:03:14,680
+I'm going to click on the Done button and wait until my font is converted to all of the formats I need
+
+25
+00:03:23,320 --> 00:03:25,990
+it seems the conversion is done.
+
+26
+00:03:26,140 --> 00:03:28,300
+Let's download the converted files
+
+27
+00:03:55,120 --> 00:03:55,550
+here.
+
+28
+00:03:55,550 --> 00:04:01,220
+We have one variation of our font in three different formats.
+
+29
+00:04:01,340 --> 00:04:04,300
+Let's move these files into our application.
+
+30
+00:04:04,310 --> 00:04:07,880
+I need to create a folder where I'm going to store this fonts
+
+31
+00:04:21,440 --> 00:04:24,830
+now I can move the a custom font files into this folder
+
+32
+00:05:05,710 --> 00:05:06,350
+next.
+
+33
+00:05:06,370 --> 00:05:09,650
+Let's use this font inside is application.
+
+34
+00:05:09,730 --> 00:05:13,630
+I'm going to make it as a default font for all elements on the page
+
+35
+00:05:17,450 --> 00:05:22,910
+I will create another SPSS file that will affect the whole application
+
+36
+00:05:39,730 --> 00:05:44,140
+in order to tell the browser that we are going to use a custom font.
+
+37
+00:05:44,170 --> 00:05:52,810
+We need to use font face CSA as a rule the font face see essence rule specifies a custom font with which
+
+38
+00:05:52,810 --> 00:06:00,970
+to display the text by allowing authors to provide their own fonts font face makes it possible to design
+
+39
+00:06:00,970 --> 00:06:07,740
+content without being limited to the so-called Web safe font web safe.
+
+40
+00:06:07,740 --> 00:06:16,520
+Phones are the funds which are so common that they consider it to be universally available.
+
+41
+00:06:16,930 --> 00:06:19,750
+First I need to specify the font family.
+
+42
+00:06:21,400 --> 00:06:29,260
+This would be the name I can use later in order to apply this custom font to various DOM elements.
+
+43
+00:06:29,260 --> 00:06:33,970
+Now I'm going to specify the font weight for this custom font.
+
+44
+00:06:33,970 --> 00:06:41,490
+We have three variations of the same open Sans font but they have different font weight.
+
+45
+00:06:41,600 --> 00:06:47,850
+This property will help us to distinguish between multiple font variations.
+
+46
+00:06:47,890 --> 00:06:51,040
+Now we need to specify the location of the files.
+
+47
+00:06:51,190 --> 00:07:15,110
+That store is a custom font.
+
+48
+00:07:15,320 --> 00:07:19,490
+I'm going to provide three formats in order to increase browser support
+
+49
+00:07:37,640 --> 00:07:45,500
+had the moment you specified only one font face these font face declares the light font which has font
+
+50
+00:07:45,500 --> 00:07:47,760
+weight 300.
+
+51
+00:07:47,780 --> 00:08:00,200
+Now I need to specify two more font faces in order to cover two other font variations.
+
+52
+00:08:00,370 --> 00:08:02,200
+This one will cover font for it.
+
+53
+00:08:02,300 --> 00:08:03,150
+400
+
+54
+00:08:23,070 --> 00:08:26,310
+and this one will cover font weight six hundred
+
+55
+00:08:35,750 --> 00:08:39,530
+now I need to specify our custom font as the default font
+
+56
+00:09:03,140 --> 00:09:08,370
+the default font it will be 300.
+
+57
+00:09:08,420 --> 00:09:13,220
+Now I need to import this file before any other files in this application
+
+58
+00:09:23,670 --> 00:09:27,120
+there is only one thing left before we are done.
+
+59
+00:09:27,120 --> 00:09:31,770
+We need to configure repack so it can understand font files.
+
+60
+00:09:31,860 --> 00:09:39,270
+I will go to the VAT pack configuration file in order to load funds I need to add an extra rule to the
+
+61
+00:09:39,270 --> 00:09:40,650
+wrapper configuration
+
+62
+00:09:47,050 --> 00:09:50,940
+we need to support at least three formats for storing funds.
+
+63
+00:10:04,970 --> 00:10:21,910
+We are going to use a file loader in order to import funds into the project.
+
+64
+00:10:21,920 --> 00:10:36,770
+This will preserve the file name and extension when generating files in the dust folder.
+
+65
+00:10:36,920 --> 00:10:42,380
+This will create a sub folder named funds inside the list folder.
+
+66
+00:10:42,380 --> 00:10:45,860
+I changed the development of a pack configuration.
+
+67
+00:10:45,860 --> 00:11:02,280
+Now let's add the same rule to the production configuration.
+
+68
+00:11:02,330 --> 00:11:05,960
+Make sure you have the file loader installed.
+
+69
+00:11:06,050 --> 00:11:11,950
+If you followed all the videos you should have it already installed on your computer in case you don't.
+
+70
+00:11:12,050 --> 00:11:15,470
+You just need to run one simple comment from a terminal
+
+71
+00:11:30,220 --> 00:11:31,250
+that's all.
+
+72
+00:11:31,270 --> 00:11:34,980
+Now let's go to the browser and check if this actually works.
+
+73
+00:11:46,760 --> 00:11:54,790
+As you can see everything works all the text on the page is render it using the custom font we provided.
+
+74
+00:11:54,830 --> 00:11:59,690
+So in this video you have seen how you can use custom fonts with web Westpac.
