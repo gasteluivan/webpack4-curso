@@ -1,0 +1,609 @@
+0
+1
+00:00:01,880 --> 00:00:06,500
+In this video we'll talk about linters in general and ESLint in particular.
+1
+
+2
+00:00:06,500 --> 00:00:11,990
+This topic is not connected directly to webpack. You can use ESLint and even if you don't use Webpack
+2
+
+3
+00:00:12,050 --> 00:00:13,390
+in your project.
+3
+
+4
+00:00:13,490 --> 00:00:18,980
+Therefore this video is optional and is not required in order to understand how webpack works.
+4
+
+5
+00:00:19,530 --> 00:00:24,060
+However, I think that the information presented in this video is useful for you
+5
+
+6
+00:00:24,170 --> 00:00:30,110
+if you plan to work on any javascript project. So what is a linter?
+6
+
+7
+00:00:30,170 --> 00:00:37,220
+According to Wikipedia a linter refers to tools that analyze the source code to flag programming errors,
+7
+
+8
+00:00:37,340 --> 00:00:41,150
+bugs, stylistic errors, and suspicious constructs.
+8
+
+9
+00:00:41,150 --> 00:00:46,460
+The term originates from a Unix utility that examined C language source code.
+9
+
+10
+00:00:46,490 --> 00:00:52,460
+The term is now applied generically to tools that flag suspicious code in software written in any programming
+10
+
+11
+00:00:52,460 --> 00:00:53,660
+language.
+11
+
+12
+00:00:53,750 --> 00:00:56,690
+Linters can warn you about syntax errors,
+12
+
+13
+00:00:56,690 --> 00:01:03,170
+uses of undeclared variables, calls to deprecated functions, spacing and formatting conventions, and much
+13
+
+14
+00:01:03,170 --> 00:01:04,810
+more.
+14
+
+15
+00:01:05,040 --> 00:01:10,650
+There are linters for almost every programming language. But in this video we are going to talk about
+15
+
+16
+00:01:10,680 --> 00:01:11,330
+ESLint.
+16
+
+17
+00:01:11,970 --> 00:01:18,660
+ESLint is an open source project that provides a pluggable linting  utility for JavaScript.
+17
+
+18
+00:01:18,720 --> 00:01:26,480
+It is highly configurable and you can optimize it for the specific needs of your project.
+18
+
+19
+00:01:26,650 --> 00:01:33,900
+I'll show you how to install ESLint for this project associated with this course. If you want to repeat
+19
+
+20
+00:01:33,930 --> 00:01:38,130
+all the steps on your local computer, you would need to clone this repository.
+20
+
+21
+00:01:40,720 --> 00:01:42,030
+And check out the branch
+21
+
+22
+00:01:45,050 --> 00:01:49,040
+which is called starting-point-for-use-cases.
+22
+
+23
+00:01:54,230 --> 00:01:59,280
+So let me show you how to configure linting for this project.
+23
+
+24
+00:01:59,300 --> 00:02:00,800
+First, we need to install ESLint.
+24
+
+25
+00:02:08,420 --> 00:02:12,990
+This will install ESLint into node_modules folder of this project.
+25
+
+26
+00:02:13,010 --> 00:02:20,410
+Now let's go to the editor and add an NPM script that will run ESLint for us. I will go to the
+26
+
+27
+00:02:20,410 --> 00:02:21,070
+package.json.
+27
+
+28
+00:02:27,310 --> 00:02:37,760
+And here we have the list of scripts. I will add a new script which we'll call lint. And here I will
+28
+
+29
+00:02:37,760 --> 00:02:45,390
+just specify the eslint without any additional options.
+29
+
+30
+00:02:45,500 --> 00:02:48,450
+So now we need to create a configuration file for
+30
+
+31
+00:02:48,460 --> 00:02:49,360
+ESLint.
+31
+
+32
+00:02:49,430 --> 00:02:57,700
+This file is called .eslintrc and it uses json format. So let me create this file in the root directory
+32
+
+33
+00:02:57,700 --> 00:02:58,480
+of the project
+33
+
+34
+00:03:06,380 --> 00:03:07,400
+Here in this file
+34
+
+35
+00:03:07,400 --> 00:03:12,230
+we can specify the rules, and according to these rules ESLint will inspect our code.
+35
+
+36
+00:03:18,760 --> 00:03:25,480
+All ESLint are configurable, and on this page you can see a list of all the rules. As you can see
+36
+
+37
+00:03:25,570 --> 00:03:27,470
+the list of rules is quite big.
+37
+
+38
+00:03:27,580 --> 00:03:31,790
+It's quite hard to specify each and every rule with its specific configuration.
+38
+
+39
+00:03:31,810 --> 00:03:37,920
+However, if you want to do that, it's possible. If you look at this list you will notice that some rules
+39
+
+40
+00:03:37,920 --> 00:03:44,100
+have checkmarks. These rules are widely used and they check the most common problems. They are so common
+40
+
+41
+00:03:44,190 --> 00:03:46,980
+that there is a shortcut in order to apply them all.
+41
+
+42
+00:03:47,100 --> 00:03:56,790
+And this requires only one line of code. So here, inside the ESLint configuration file,
+42
+
+43
+00:03:59,710 --> 00:04:09,470
+I will add extends eslint:recommended. And this line tells ESLint to apply only the rules with checkmarks
+43
+
+44
+00:04:09,530 --> 00:04:11,140
+that we have seen just now.
+44
+
+45
+00:04:11,360 --> 00:04:13,190
+But this is not all we need.
+45
+
+46
+00:04:13,310 --> 00:04:19,170
+By default ESLint checks javascript code against Ecmascript 5 standard. However we use Ecmascript
+46
+
+47
+00:04:19,190 --> 00:04:25,400
+6 in this project. That requires us to configure a couple more options inside ESLint configuration file.
+47
+
+48
+00:04:30,310 --> 00:04:34,790
+So below this line we need to specify parser options.
+48
+
+49
+00:04:37,570 --> 00:04:40,270
+And here we can specify the Ecmascript version.
+49
+
+50
+00:04:45,330 --> 00:04:47,360
+and we will put six here.
+50
+
+51
+00:04:49,680 --> 00:04:54,450
+And besides that we need to specify sourcetype module.
+51
+
+52
+00:04:57,850 --> 00:05:04,000
+So the sourcetype allows us to use Ecmascript six modules. Otherwise ESLint would complain about import
+52
+
+53
+00:05:04,060 --> 00:05:05,620
+and export keywords.
+53
+
+54
+00:05:08,300 --> 00:05:09,220
+If we run ESLint now,
+54
+
+55
+00:05:09,230 --> 00:05:16,770
+we will see a bunch of errors related to require function and document variable.
+55
+
+56
+00:05:16,870 --> 00:05:21,730
+We need to teach ESLint that it should not complain about require function inside the webpack configuration
+56
+
+57
+00:05:21,730 --> 00:05:27,520
+files. Because the require function is defined when you run our build from the terminal using node js.
+57
+
+58
+00:05:28,380 --> 00:05:28,810
+For this
+58
+
+59
+00:05:28,810 --> 00:05:34,270
+we need to tell ESLint that we are using node js environment.
+59
+
+60
+00:05:34,420 --> 00:05:39,210
+Here we can specify env option and inside
+60
+
+61
+00:05:39,220 --> 00:05:42,490
+we can say that we are using a node environment.
+61
+
+62
+00:05:46,360 --> 00:05:48,280
+So now ESLint
+62
+
+63
+00:05:48,350 --> 00:05:53,320
+will know that require function is defined and it will not complain about it anymore.
+63
+
+64
+00:05:53,320 --> 00:05:58,600
+We also need to tell you need to not complain when it finds document variable inside our components
+64
+
+65
+00:05:58,840 --> 00:06:04,220
+because that code will be executed in the browser environment. And inside of the browser environment
+65
+
+66
+00:06:04,270 --> 00:06:12,640
+we have a document variable defined. So here we will also specify that we are using browser environment.
+66
+
+67
+00:06:17,410 --> 00:06:18,640
+There is one more thing.
+67
+
+68
+00:06:19,060 --> 00:06:25,030
+If you remember, we are using class properties in our project which is not part of official ecmascript specification
+68
+
+69
+00:06:25,060 --> 00:06:25,770
+yet.
+69
+
+70
+00:06:25,900 --> 00:06:27,940
+ESLint will complain about it as well.
+70
+
+71
+00:06:40,040 --> 00:06:43,100
+This line here refers to class properties.
+71
+
+72
+00:06:47,370 --> 00:06:52,850
+So in order to fix this we need to use another parser for ESLint which is called 
+72
+
+73
+00:06:52,870 --> 00:06:53,600
+babel-eslint.
+73
+
+74
+00:06:53,610 --> 00:07:01,770
+First we need to install this parser.
+74
+
+75
+00:07:01,880 --> 00:07:04,810
+Now we can add it to the eslint configuration file.
+75
+
+76
+00:07:08,870 --> 00:07:14,220
+Here we just specify parser babel-eslint.
+76
+
+77
+00:07:17,390 --> 00:07:18,000
+If we run
+77
+
+78
+00:07:18,030 --> 00:07:18,710
+eslint
+78
+
+79
+00:07:18,730 --> 00:07:19,010
+now,
+79
+
+80
+00:07:22,550 --> 00:07:28,350
+it will not complain about class properties anymore.
+80
+
+81
+00:07:28,520 --> 00:07:34,850
+So now the only thing that is left is errors about the console.log statements that we have throughout
+81
+
+82
+00:07:34,850 --> 00:07:35,390
+the project.
+82
+
+83
+00:07:44,090 --> 00:07:44,810
+These errors.
+83
+
+84
+00:07:47,270 --> 00:07:48,700
+In order to remove this errors,
+84
+
+85
+00:07:48,710 --> 00:07:53,000
+we need to configure one more rule that checks for a console.log statements.
+85
+
+86
+00:07:53,000 --> 00:07:56,240
+This rule is called no-console. By default
+86
+
+87
+00:07:56,300 --> 00:08:02,060
+eslint:recommended thing includes the rule that does not allow us to use console. log
+87
+
+88
+00:08:02,060 --> 00:08:04,530
+statements, but for the purpose of this project
+88
+
+89
+00:08:04,640 --> 00:08:05,960
+we need them.
+89
+
+90
+00:08:05,960 --> 00:08:07,840
+So we need to override this rule.
+90
+
+91
+00:08:14,120 --> 00:08:17,020
+All the rules are specified inside the rules object
+91
+
+92
+00:08:20,370 --> 00:08:25,410
+And here we can say that no-console rule should be turned off.
+92
+
+93
+00:08:29,340 --> 00:08:36,060
+So zero here means that this rule is turned off. If we run eslint in the terminal now, we will see that
+93
+
+94
+00:08:36,060 --> 00:08:37,560
+there are no complaints anymore.
+94
+
+95
+00:08:49,910 --> 00:08:55,420
+So far every time we needed to check our code for linting errors, we went to a terminal and ran a command
+95
+
+96
+00:08:55,450 --> 00:08:56,280
+there.
+96
+
+97
+00:08:56,320 --> 00:09:01,430
+But there is a way to setup linter inside the editor, so we can see the errors right away, without going to
+97
+
+98
+00:09:01,430 --> 00:09:02,320
+the terminal.
+98
+
+99
+00:09:02,450 --> 00:09:05,780
+For every editor I know there is a plugin for eslint.
+99
+
+100
+00:09:06,230 --> 00:09:08,400
+Since we are using Atom in this course,
+100
+
+101
+00:09:08,430 --> 00:09:10,760
+I'll show you how to install eslint for Atom.
+101
+
+102
+00:09:13,690 --> 00:09:14,060
+First,
+102
+
+103
+00:09:14,060 --> 00:09:16,160
+we need to go to the Atom preferences.
+103
+
+104
+00:09:24,940 --> 00:09:31,740
+And here we need to go to the tab called install. We need to install two packages here.
+104
+
+105
+00:09:31,940 --> 00:09:33,660
+First one is called linter.
+105
+
+106
+00:09:37,630 --> 00:09:43,680
+And I already have this package installed. And the second package is called linter-eslint.
+106
+
+107
+00:09:43,830 --> 00:09:48,460
+I have this package as well.
+107
+
+108
+00:09:51,630 --> 00:09:56,560
+Okay so these packages are installed. So let's check how this works.
+108
+
+109
+00:09:56,560 --> 00:10:02,230
+I will go to hello-world-button.js file and intentionally make an error somewhere in the code.
+109
+
+110
+00:10:06,140 --> 00:10:14,900
+So let's say we made a mistake, like a small typo, and instead of button we wrote batton. And immediately
+110
+
+111
+00:10:14,900 --> 00:10:17,160
+you can see a red circle to the left.
+111
+
+112
+00:10:17,540 --> 00:10:19,520
+If I hover my mouse on this circle,
+112
+
+113
+00:10:19,520 --> 00:10:27,900
+I will see a message saying "batton is not defined". In general, code linting is the process of static code
+113
+
+114
+00:10:27,930 --> 00:10:32,290
+analysis that can help you discover bugs early on in the development process.
+114
+
+115
+00:10:32,340 --> 00:10:37,680
+It can help you avoid spending half an hour of your time debugging production code just to find out
+115
+
+116
+00:10:37,740 --> 00:10:42,150
+that there is a typo in the name of the variable or something like that. Of course,
+116
+
+117
+00:10:42,170 --> 00:10:48,060
+eslint cannot find a more complex bugs related to the business logic of your application. But at least
+117
+
+118
+00:10:48,060 --> 00:10:51,620
+it helps you to avoid dummy mistakes.
+118
+
+119
+00:10:51,670 --> 00:10:55,170
+There is actually one more area where eslint can be applied.
+119
+
+120
+00:10:55,510 --> 00:11:00,640
+eslint can help your team to define and follow a common coding standards which will make your project
+120
+
+121
+00:11:01,000 --> 00:11:03,960
+look like it was written by a single person.
+121
+
+122
+00:11:04,000 --> 00:11:07,780
+I saw several teams using eslint specifically for this purpose.

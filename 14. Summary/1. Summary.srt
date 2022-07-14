@@ -1,0 +1,99 @@
+0
+1
+00:00:01,000 --> 00:00:04,840
+I hope you enjoyed this course and learned a lot of new things for yourself.
+1
+
+2
+00:00:05,050 --> 00:00:08,320
+Let's do a quick recap or what we have done so far.
+2
+
+3
+00:00:09,750 --> 00:00:14,270
+First we created a small application with only two javascript files.
+3
+
+4
+00:00:14,370 --> 00:00:18,230
+Then we integrated webpack into our application.
+4
+
+5
+00:00:18,540 --> 00:00:25,290
+Then we looked at the webpack loaders and learned how to import CSS, images, and lots of other stuff into
+5
+
+6
+00:00:25,290 --> 00:00:26,820
+our application.
+6
+
+7
+00:00:26,820 --> 00:00:33,240
+we also have seen how we can use latest cutting edge javascript features in our applications, even though
+7
+
+8
+00:00:33,300 --> 00:00:36,560
+they are not implemented in all major browsers yet.
+8
+
+9
+00:00:38,890 --> 00:00:45,220
+After that we looked at several webpack plugins and learned how to extract css into a separate bundle, and
+9
+
+10
+00:00:45,220 --> 00:00:47,620
+how to generate html files.
+10
+
+11
+00:00:47,620 --> 00:00:53,490
+We talked about browser caching and how webpack can help us with that.
+11
+
+12
+00:00:53,570 --> 00:00:59,130
+Then we talked about the differences between production and development builds and optimized our webpack
+12
+
+13
+00:00:59,240 --> 00:01:01,740
+configurations for these use cases.
+13
+
+14
+00:01:03,980 --> 00:01:09,440
+We also talked about multi-page applications and how we can handle common dependencies between several
+14
+
+15
+00:01:09,440 --> 00:01:12,000
+pages.
+15
+
+16
+00:01:12,160 --> 00:01:19,580
+Finally, we learned how to integrate express.js framework both for single page applications and for multi-page
+16
+
+17
+00:01:19,670 --> 00:01:21,910
+applications.
+17
+
+18
+00:01:22,070 --> 00:01:24,860
+It was a nice journey and we had a lot of fun together.
+18
+
+19
+00:01:25,070 --> 00:01:29,690
+I hope you enjoyed watching this course as much as I enjoyed creating it.
+19
+
+20
+00:01:29,690 --> 00:01:31,540
+Have a nice day and a happy life.

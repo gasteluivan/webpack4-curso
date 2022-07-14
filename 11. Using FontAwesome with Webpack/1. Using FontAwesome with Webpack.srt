@@ -1,0 +1,199 @@
+1
+00:00:00,940 --> 00:00:05,410
+In this video we will learn how to use font awesome together with so epic.
+
+2
+00:00:05,500 --> 00:00:08,240
+For those of you who never cared about fantasy.
+
+3
+00:00:08,380 --> 00:00:11,520
+This is one of the most popular item fonts on the Web.
+
+4
+00:00:11,650 --> 00:00:15,550
+These icons are used by hundreds and even thousands of Web sites.
+
+5
+00:00:15,670 --> 00:00:22,090
+Traditional way of including the font awesome into your Web site is to add a CDM link inside the head.
+
+6
+00:00:22,570 --> 00:00:29,200
+One of the students asked me recently if it's possible to install on post some as NPM package and work
+
+7
+00:00:29,200 --> 00:00:32,140
+with it the same way as it has other dependencies.
+
+8
+00:00:32,140 --> 00:00:38,850
+The answer is yes and in this video I will show you how in the latest version of fun awesome they introduced
+
+9
+00:00:39,090 --> 00:00:44,540
+SPG javascript framework using this framework is the recommended way to integrate font.
+
+10
+00:00:44,550 --> 00:00:44,930
+Awesome.
+
+11
+00:00:44,940 --> 00:00:46,850
+It is epic.
+
+12
+00:00:47,330 --> 00:00:50,150
+We need to install four different packages.
+
+13
+00:01:14,650 --> 00:01:15,640
+Package fun.
+
+14
+00:01:15,690 --> 00:01:16,220
+Awesome.
+
+15
+00:01:16,220 --> 00:01:22,940
+That is veggie that corn provides the core functionality of SPG javascript framework.
+
+16
+00:01:23,010 --> 00:01:26,780
+The other three NBN packages include font awesome icons.
+
+17
+00:01:26,790 --> 00:01:35,490
+Now we need to go to the editor and import this packages I will import them inside index not J S I will
+
+18
+00:01:35,490 --> 00:01:38,790
+import from awesome that SPG that core
+
+19
+00:01:51,070 --> 00:01:56,020
+library object allows us to specify which icons he wants to use we will use.
+
+20
+00:01:56,020 --> 00:02:03,610
+Don't object to replace any existing I fix these SPG as I already said we don't have to import all possible
+
+21
+00:02:03,610 --> 00:02:05,320
+icons from fun awesome.
+
+22
+00:02:05,470 --> 00:02:12,000
+We can specify only those icons which we need in our project I will import on one icon for now which
+
+23
+00:02:12,000 --> 00:02:13,360
+is f a spinner
+
+24
+00:02:24,260 --> 00:02:26,420
+and I will add this icon to the library
+
+25
+00:02:36,670 --> 00:02:42,190
+I am important on the one package which contains solid SPG icons because I don't need the other two
+
+26
+00:02:42,190 --> 00:02:42,980
+packages.
+
+27
+00:02:43,090 --> 00:02:48,850
+Obviously if you need an icon from a regular SPG icons or like icons you would need to import those
+
+28
+00:02:48,850 --> 00:02:49,750
+packages as well.
+
+29
+00:02:50,840 --> 00:02:56,020
+Now we can end this icon to our page.
+
+30
+00:02:56,120 --> 00:03:12,480
+I didn't go to the page template and here I will add.
+
+31
+00:03:12,680 --> 00:03:19,010
+I am specifying three classes here f a s means that we want to use an icon from front or some solid
+
+32
+00:03:19,040 --> 00:03:27,590
+items at A Dash spinner specifies the name of the icon and F A Dash spin fails the browser that this
+
+33
+00:03:27,590 --> 00:03:30,100
+icon should rotate.
+
+34
+00:03:30,160 --> 00:03:36,130
+There are five thousand different icons included in font awesome library and more than 1000 of them
+
+35
+00:03:36,220 --> 00:03:38,700
+is free of charge.
+
+36
+00:03:38,830 --> 00:03:42,160
+By the way we can still use IBEX in each demo.
+
+37
+00:03:44,230 --> 00:03:51,220
+Fun awesome library will replace this text these SPG icons but for this to happen we need to add one
+
+38
+00:03:51,220 --> 00:03:53,490
+more line to our javascript code.
+
+39
+00:03:53,510 --> 00:04:00,370
+I will go to index J S and here you remember the imported DOM object.
+
+40
+00:04:00,380 --> 00:04:02,290
+Now I will use it.
+
+41
+00:04:02,420 --> 00:04:09,830
+Don't object as watch method and you find what this method than this method will replace any existing
+
+42
+00:04:09,880 --> 00:04:11,570
+IBEX vs SPG.
+
+43
+00:04:11,930 --> 00:04:15,500
+What's more it will set up an observer to continue doing this.
+
+44
+00:04:15,560 --> 00:04:23,570
+If it don't changes for example if B generate some 1000 icons dynamically and add them later to the
+
+45
+00:04:23,570 --> 00:04:28,580
+document object model they will also be replaced by assuaging.
+
+46
+00:04:28,690 --> 00:04:31,630
+Now let's go to the terminal and run as a process
+
+47
+00:04:37,110 --> 00:04:38,780
+and I will start the application.
+
+48
+00:04:42,290 --> 00:04:45,430
+Let's go to the browser and have a look at the new launching icon.
+
+49
+00:04:49,070 --> 00:04:51,970
+And you see this a lot in icon right here in the top left corner.
+
+50
+00:04:53,310 --> 00:04:56,730
+In this video if I've learned how to use one awesome together it's an epic.
