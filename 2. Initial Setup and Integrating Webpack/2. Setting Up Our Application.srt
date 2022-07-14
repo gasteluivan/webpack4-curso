@@ -1,0 +1,175 @@
+1
+00:00:01,290 --> 00:00:06,150
+In this video we are going to create a basic setup for the future videos.
+
+2
+00:00:06,150 --> 00:00:08,120
+We want to touch what back yet.
+
+3
+00:00:08,160 --> 00:00:11,910
+So if you like you can skip to the next video.
+
+4
+00:00:11,910 --> 00:00:20,800
+We are going to create a simple project with only three files one HDMI file and two JavaScript files.
+
+5
+00:00:20,800 --> 00:00:28,560
+I've already created an empty folder for our project called tutorial and I opened this empty folder
+
+6
+00:00:28,620 --> 00:00:30,300
+in a text editor.
+
+7
+00:00:31,110 --> 00:00:39,560
+Basically you can use any editor of a choice like visual studio called Web storm sublime text etc..
+
+8
+00:00:39,630 --> 00:00:45,920
+First I'm going to create an HD email file with the name index that HDMI
+
+9
+00:00:56,000 --> 00:01:04,750
+I will paste here a simple content that I prepared beforehand.
+
+10
+00:01:04,820 --> 00:01:10,360
+This is a very simple HDMI page nothing special is going on here.
+
+11
+00:01:10,520 --> 00:01:18,090
+I am specifying a title character set which is UTF eight inside the body tag.
+
+12
+00:01:18,170 --> 00:01:24,710
+I am including two JavaScript files that we don't have at the moment but I'm going to grade them right
+
+13
+00:01:24,740 --> 00:01:27,040
+now.
+
+14
+00:01:27,080 --> 00:01:33,830
+I'm going to put these files into a separate folder called that's ever seen so I need to create this
+
+15
+00:01:33,830 --> 00:01:34,210
+folder.
+
+16
+00:01:34,220 --> 00:01:34,580
+Now
+
+17
+00:01:41,470 --> 00:01:46,030
+first I'm going to create Hello World dot J S file
+
+18
+00:01:51,050 --> 00:01:58,520
+there will be only one function here called Hello World.
+
+19
+00:01:58,550 --> 00:02:01,220
+This will be a pretty basic function.
+
+20
+00:02:01,220 --> 00:02:05,510
+It will print a simple string Hello World to the browser console
+
+21
+00:02:08,810 --> 00:02:10,030
+the function is done.
+
+22
+00:02:10,430 --> 00:02:17,030
+Let's invoke this function you're going to invoke it from another file that I'm going to create right
+
+23
+00:02:17,030 --> 00:02:17,970
+now.
+
+24
+00:02:18,230 --> 00:02:27,650
+This file will have a name index that J S so I will invoke the hello world function from here
+
+25
+00:02:41,640 --> 00:02:45,270
+as you can see the function definition is located inside.
+
+26
+00:02:45,480 --> 00:02:55,620
+Hello World dot J S file and we invoke this function from a different file index that J as in other
+
+27
+00:02:55,620 --> 00:02:59,310
+words index that Jesus file depends on.
+
+28
+00:02:59,400 --> 00:03:01,670
+Hello World note J S file
+
+29
+00:03:05,040 --> 00:03:10,890
+let's have a look how it works in the browser Heigl copy it it will pass and go to the browser
+
+30
+00:03:14,130 --> 00:03:21,790
+I don't paste of this pass to the navigation bar and currently we have an empty page here but if I go
+
+31
+00:03:21,790 --> 00:03:29,890
+to the developer tools and have a look in the console top you will see a jealous script error saying
+
+32
+00:03:30,040 --> 00:03:36,750
+hello world is not defined at index that G S so why do you think we have this error
+
+33
+00:03:40,560 --> 00:03:47,650
+if I go back to the editor and have a look at index dot J S file I you'll see the function invocation
+
+34
+00:03:47,670 --> 00:03:52,490
+here however the browser says that it's not defined.
+
+35
+00:03:52,710 --> 00:03:56,520
+Actually the issue is not connected to this file.
+
+36
+00:03:56,520 --> 00:04:06,270
+The issue is connected to HDMI all file these these two script tags you see index that Jesus is included
+
+37
+00:04:06,360 --> 00:04:15,020
+before hello world that J S however it should be included after because inside the index that Jesus
+
+38
+00:04:15,360 --> 00:04:24,760
+you are using a function that's defined inside hello world that J S here we are using hello world function
+
+39
+00:04:26,380 --> 00:04:36,370
+and here this function is defined therefore the order of this lines is wrong I need to change the order
+
+40
+00:04:37,420 --> 00:04:45,580
+I need to put index that Jesus after hello world not J S so as a function declaration comes before the
+
+41
+00:04:45,580 --> 00:04:55,820
+function invocation let's have a look at the browser again and check if everything works now I refresh
+
+42
+00:04:55,820 --> 00:05:01,670
+in my page and now we see hello world string in the browser console.
+
+43
+00:05:01,810 --> 00:05:08,530
+So basically we are done is our set up they're going to use it in the future read years in the next
+
+44
+00:05:08,530 --> 00:05:12,000
+video they're going to integrate right back into our project.

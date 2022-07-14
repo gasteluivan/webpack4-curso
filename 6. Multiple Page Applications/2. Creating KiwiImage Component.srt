@@ -1,0 +1,189 @@
+0
+1
+00:00:01,030 --> 00:00:03,940
+Let's imagine that our Website should consist of two pages.
+1
+
+2
+00:00:03,940 --> 00:00:06,020
+One is a hello world page which we already have.
+2
+
+3
+00:00:06,030 --> 00:00:09,480
+And the second one is kiwi page which we have just seen in the previous video.
+3
+
+4
+00:00:10,030 --> 00:00:15,430
+Our second page would need a new component which would add a kiwi image to the page. In this video
+4
+
+5
+00:00:15,430 --> 00:00:17,380
+we will create this component.
+5
+
+6
+00:00:17,380 --> 00:00:21,820
+All it will do is just add our kiwi image to the body DOM element.
+6
+
+7
+00:00:21,900 --> 00:00:26,110
+We will create a new folder inside the components folder for our new component.
+7
+
+8
+00:00:30,150 --> 00:00:32,840
+I will name this folder kiwi image
+8
+
+9
+00:00:37,990 --> 00:00:47,030
+And I will move the kiwi image that we already have to this new folder.
+9
+
+10
+00:00:47,700 --> 00:00:50,050
+Now we need to create the component itself.
+10
+
+11
+00:00:50,100 --> 00:00:52,050
+So I will create a new JavaScript file
+11
+
+12
+00:00:55,160 --> 00:01:00,370
+I will also name it kiwi image dot js.
+12
+
+13
+00:01:04,840 --> 00:01:14,080
+And inside this file we will create our kiwi image component. So I will create a new class.
+13
+
+14
+00:01:15,290 --> 00:01:19,280
+And this class will have only one function inside which is render.
+14
+
+15
+00:01:23,020 --> 00:01:29,190
+Inside this function we will create our image element and then add it to the body DOM element.
+15
+
+16
+00:01:42,890 --> 00:01:49,180
+I will add src to this image element. It should be a path to our kiwi image.
+16
+
+17
+00:01:49,700 --> 00:01:53,810
+For this we would need to import our image into this file.
+17
+
+18
+00:02:02,050 --> 00:02:10,160
+And now I can use Kiwi as an src.
+18
+
+19
+00:02:11,110 --> 00:02:13,630
+We would also put an alt attribute here.
+19
+
+20
+00:02:17,710 --> 00:02:33,540
+And I will add a class , css class to this element, because we would need to do some styling.
+20
+
+21
+00:02:34,370 --> 00:02:38,490
+Now we already have our image element.
+21
+
+22
+00:02:38,480 --> 00:02:58,200
+What we need to do now is to add this element to the existing body DOM element of our page.
+22
+
+23
+00:03:00,610 --> 00:03:03,030
+OK it seems we are done now.
+23
+
+24
+00:03:03,070 --> 00:03:07,750
+We need to export our kiwi image class from this file.
+24
+
+25
+00:03:07,870 --> 00:03:12,400
+So later we can import it inside our new Page
+25
+
+26
+00:03:17,810 --> 00:03:18,920
+I missed a space here.
+26
+
+27
+00:03:22,270 --> 00:03:24,260
+This component who also has some css.
+27
+
+28
+00:03:24,260 --> 00:03:29,300
+So we will add it as well. Inside our Kiwi image folder
+28
+
+29
+00:03:29,310 --> 00:03:33,470
+I will create yet another file which he'll be called
+29
+
+30
+00:03:33,600 --> 00:03:37,680
+kiwi image dot scss.
+30
+
+31
+00:03:41,760 --> 00:03:46,620
+And inside this file I will add some simple css to our image.
+31
+
+32
+00:03:52,250 --> 00:04:02,070
+I will specify display block and I will specify some specific width for our component, so it wouldn't be very
+32
+
+33
+00:04:02,070 --> 00:04:02,610
+big.
+33
+
+34
+00:04:02,610 --> 00:04:09,000
+Like for example 400 pixels and also I will put height auto.
+34
+
+35
+00:04:13,290 --> 00:04:19,380
+Now we need to import this css file inside the main component file, so I will go to
+35
+
+36
+00:04:19,380 --> 00:04:25,920
+kiwi image dot js. And right  below the importing our image
+36
+
+37
+00:04:25,920 --> 00:04:28,050
+i will import css as well.
+37
+
+38
+00:04:36,520 --> 00:04:41,890
+It seems our component is ready now. In the next video we will create a page that will use this component.

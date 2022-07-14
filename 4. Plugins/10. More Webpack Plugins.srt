@@ -1,0 +1,64 @@
+0
+1
+00:00:00,760 --> 00:00:03,990
+In this section we have learned about wetback plugins.
+1
+
+2
+00:00:04,000 --> 00:00:07,930
+First we have learned how we can make our resulting bundles smaller,
+2
+
+3
+00:00:07,960 --> 00:00:15,070
+so it is faster to download. Then we extracted all our css into a separate css bundle.
+3
+
+4
+00:00:15,070 --> 00:00:22,230
+Also we learned how we can generate HTML files automatically during the build process. We used only several
+4
+
+5
+00:00:22,340 --> 00:00:22,880
+plugins
+5
+
+6
+00:00:22,880 --> 00:00:24,010
+in this course.
+6
+
+7
+00:00:24,020 --> 00:00:30,020
+I believe they are the most important ones, but you have seen that it is very easy to include a new plugin
+7
+
+8
+00:00:30,050 --> 00:00:37,250
+into your webpack configuration.
+8
+
+9
+00:00:37,710 --> 00:00:43,680
+Here is the list of official webpack plugins, and if you need some plugin from this list just click on the
+9
+
+10
+00:00:43,680 --> 00:00:46,560
+link and go to the respective plugin page.
+10
+
+11
+00:00:50,080 --> 00:00:54,450
+There you can see how to configure this particular plugin for your project.
+11
+
+12
+00:00:54,550 --> 00:01:00,490
+In addition to that there are a lot of third party Webpack plugins that you can use. So you will never get
+12
+
+13
+00:01:00,490 --> 00:01:01,690
+bored with this stuff!

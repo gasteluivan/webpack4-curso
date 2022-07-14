@@ -1,0 +1,39 @@
+1
+00:00:01,820 --> 00:00:07,190
+Let's clean up a bit of the previous video so that we can continue this other sections.
+
+2
+00:00:07,250 --> 00:00:13,280
+I will remove the second heading from our page because I think one heading is enough and I will change
+
+3
+00:00:13,280 --> 00:00:15,980
+the color of the button back to green.
+
+4
+00:00:15,980 --> 00:00:18,520
+First let's remove the second heading.
+
+5
+00:00:18,770 --> 00:00:26,710
+I will go to the index the G S file and here we have two headings so I will remove the second one.
+
+6
+00:00:27,230 --> 00:00:31,150
+It's done and now let's fix our success.
+
+7
+00:00:31,190 --> 00:00:32,980
+I need to go to the hello world.
+
+8
+00:00:32,980 --> 00:00:34,880
+Button that SPSS file
+
+9
+00:00:39,910 --> 00:00:49,330
+and here we can see that our button background color is red and now I will change it back to green.
+
+10
+00:00:49,370 --> 00:00:51,700
+Now we are ready to continue with other sections.

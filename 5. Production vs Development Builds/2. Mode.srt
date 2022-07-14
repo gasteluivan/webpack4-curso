@@ -1,0 +1,187 @@
+1
+00:00:01,200 --> 00:00:04,170
+In this video people talk about mode option.
+
+2
+00:00:04,200 --> 00:00:10,620
+Remember in our back configuration if a special option called mode this option enables certain things
+
+3
+00:00:10,680 --> 00:00:14,580
+in optimizations for production deals and development bills.
+
+4
+00:00:14,860 --> 00:00:18,360
+By the way the mode option became available starting from.
+
+5
+00:00:18,450 --> 00:00:26,060
+For earlier versions of required much more configuration in order to get the same results in the beginning
+
+6
+00:00:26,060 --> 00:00:30,010
+of this course we have set this option to num.
+
+7
+00:00:30,090 --> 00:00:33,960
+It means that we don't want any kind of built in optimizations.
+
+8
+00:00:33,960 --> 00:00:36,350
+Now it's time to change the setting.
+
+9
+00:00:36,630 --> 00:00:41,760
+We can put here three different entities non development or production.
+
+10
+00:00:42,000 --> 00:00:47,370
+Let's add more option two different variables and compare what happens with our bundles.
+
+11
+00:00:47,520 --> 00:00:49,280
+First let's set it to production
+
+12
+00:00:52,760 --> 00:00:57,520
+production mode enables quite a long list of different plugins including some plugin.
+
+13
+00:00:57,890 --> 00:01:03,380
+If you want to see the full list of plugins you can go to the official web backed documentation to this
+
+14
+00:01:03,380 --> 00:01:03,740
+page
+
+15
+00:01:07,170 --> 00:01:10,040
+and here you can find the full list of plugins.
+
+16
+00:01:10,190 --> 00:01:16,000
+The mode option also sets process and not and variable to production.
+
+17
+00:01:16,080 --> 00:01:22,590
+We can use this variable in our code to check if they are in production mode or in development mode.
+
+18
+00:01:22,620 --> 00:01:26,450
+Let's go to index not J S now and see how it works
+
+19
+00:01:32,030 --> 00:01:35,870
+I will add a little bit of code here that will check note and variable
+
+20
+00:01:44,990 --> 00:01:48,760
+note and variable equal to production legal output to the console.
+
+21
+00:01:48,780 --> 00:01:49,820
+Production mode.
+
+22
+00:01:57,360 --> 00:02:02,310
+And if this variable equals 2 development we will output to the console development mode.
+
+23
+00:02:14,350 --> 00:02:18,190
+Production and development mode also handle errors difference.
+
+24
+00:02:18,400 --> 00:02:20,700
+Let's make some intentional error here.
+
+25
+00:02:20,760 --> 00:02:31,570
+Real cold metal that does not exist.
+
+26
+00:02:31,790 --> 00:02:34,220
+Now we need to run our build in the terminal.
+
+27
+00:02:43,280 --> 00:02:45,890
+Let's go to the browser and look into the browser console.
+
+28
+00:02:49,980 --> 00:02:53,660
+I can copy the full POS to our index HDMI out.
+
+29
+00:02:56,100 --> 00:02:57,660
+And paste it into the browser
+
+30
+00:03:01,020 --> 00:03:02,100
+in the browser console.
+
+31
+00:03:02,130 --> 00:03:08,810
+We can see that we are in production mode and that we had an error because all our javascript code is
+
+32
+00:03:08,810 --> 00:03:11,210
+bundled inside the one file and modified.
+
+33
+00:03:11,300 --> 00:03:20,270
+We just see that this error comes somewhere from bundle the J S from line 1 if we click on this line
+
+34
+00:03:20,590 --> 00:03:24,310
+then we'll go to that magnified version of our code.
+
+35
+00:03:24,390 --> 00:03:27,900
+It is very hard to understand any sum here.
+
+36
+00:03:27,970 --> 00:03:31,490
+Now let's change the mode auction to development and run our event.
+
+37
+00:03:31,510 --> 00:03:31,900
+Again
+
+38
+00:03:37,770 --> 00:03:40,800
+now we need to go to the terminal and front our built
+
+39
+00:03:45,870 --> 00:03:54,850
+so let's go to the browser and check the page one more time.
+
+40
+00:03:54,870 --> 00:04:00,550
+Now we can see that we are in development mode and that we have an error coming specifically from index
+
+41
+00:04:00,740 --> 00:04:05,230
+J S from line 16 if I click on this line.
+
+42
+00:04:06,160 --> 00:04:12,870
+I will go to the readable version of our source files does this specific line end here.
+
+43
+00:04:12,880 --> 00:04:15,800
+I can see that the accounting method does not exist.
+
+44
+00:04:16,820 --> 00:04:18,710
+This is already much better.
+
+45
+00:04:18,710 --> 00:04:23,100
+This works because development mode uses source maps by default.
+
+46
+00:04:23,270 --> 00:04:28,550
+In this video we have seen how we can use smart option for optimizing our production and development
+
+47
+00:04:28,640 --> 00:04:28,970
+yields.

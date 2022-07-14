@@ -1,0 +1,134 @@
+0
+1
+00:00:00,820 --> 00:00:04,690
+So we need to tell Webpack in which location our image is located.
+1
+
+2
+00:00:04,690 --> 00:00:10,950
+We can see that it is inside the dist folder. This file is actually our image.
+2
+
+3
+00:00:10,950 --> 00:00:15,750
+It has some strange name because it is an MD5 hash, but it is still our image.
+3
+
+4
+00:00:18,630 --> 00:00:21,840
+We need to add 1 more property to the output configuration option.
+4
+
+5
+00:00:25,550 --> 00:00:27,770
+This property is named publicPath.
+5
+
+6
+00:00:31,740 --> 00:00:36,420
+And we need to specify dist here, because our image is inside the dist folder.
+6
+
+7
+00:00:36,510 --> 00:00:40,690
+Don't forget the ending slash.
+7
+
+8
+00:00:40,780 --> 00:00:45,090
+Now let's run Webpack in the terminal and see if anything changes in the browser.
+8
+
+9
+00:00:48,520 --> 00:00:49,540
+Our build is done.
+9
+
+10
+00:00:49,600 --> 00:00:54,420
+So I'm going to my browser and I will refresh my page. And voila!
+10
+
+11
+00:00:54,420 --> 00:00:56,980
+Now we can see that our image is on the page.
+11
+
+12
+00:00:57,210 --> 00:01:03,090
+And if you look into the developer tools you'll see that our image src begins with "dist/"
+12
+
+13
+00:01:03,090 --> 00:01:06,290
+and then the MD5 hash.
+13
+
+14
+00:01:06,430 --> 00:01:13,490
+So basically publicPath tells Webpack where all the generated files are located. Let's assume that
+14
+
+15
+00:01:13,490 --> 00:01:19,730
+we deployed this website to the Internet and we have registered a domain 
+15
+
+16
+00:01:19,730 --> 00:01:20,690
+"http://the-most-awesome-website.com/".
+16
+
+17
+00:01:21,290 --> 00:01:27,280
+So in order to correctly show images on this domain we would need to change the publicPath
+17
+
+18
+00:01:27,290 --> 00:01:29,120
+"http://the-most-awesome-website.com/"
+18
+
+19
+00:01:29,180 --> 00:01:30,910
+Let's play with it a bit.
+19
+
+20
+00:01:31,380 --> 00:01:38,210
+So here inside the dist I will put "http://the-most-awesome-website.com/"
+20
+
+21
+00:01:40,870 --> 00:01:48,670
+Because when I Webpack creates the path to the file it will just concatenate
+21
+
+22
+00:01:48,670 --> 00:01:55,640
+these two strings. So it will be the domain name and then slash and then file name.
+22
+
+23
+00:01:55,650 --> 00:01:59,810
+So now let's go to the terminal and run our build again.
+23
+
+24
+00:02:04,440 --> 00:02:10,590
+Our build is done and we can go to the browser again, and refresh the page, and you cannot see the image
+24
+
+25
+00:02:10,590 --> 00:02:18,240
+here because I changed the public path. But here inside the developer tools you can see that src starts
+25
+
+26
+00:02:18,240 --> 00:02:25,180
+with "http://the-most-awesome-website.com/" and then the filename.
+26
+
+27
+00:02:25,180 --> 00:02:31,120
+In this video we have successfully imported an image into the javascript file and became familiar with Webpack loaders.

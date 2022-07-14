@@ -1,0 +1,39 @@
+0
+1
+00:00:01,920 --> 00:00:07,060
+Usually production builds require a different setup than development builds. In production
+1
+
+2
+00:00:07,070 --> 00:00:13,080
+we want our website to be as fast as possible. And our bundles should be as small as possible.
+2
+
+3
+00:00:13,080 --> 00:00:19,130
+On the other hand, during development we often want to see an additional information inside our javascript
+3
+
+4
+00:00:19,130 --> 00:00:19,660
+code.
+4
+
+5
+00:00:19,800 --> 00:00:22,980
+Like for example source maps and other stuff.
+5
+
+6
+00:00:23,160 --> 00:00:28,380
+In this section we will talk about differences between production and development builds, and how to
+6
+
+7
+00:00:28,380 --> 00:00:30,180
+make our webpack configurations
+7
+
+8
+00:00:30,210 --> 00:00:31,950
+serve both use cases.

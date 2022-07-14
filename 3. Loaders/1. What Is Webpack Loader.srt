@@ -1,0 +1,47 @@
+1
+00:00:00,600 --> 00:00:06,810
+In this section we are going to learn about what pack loaders at this point you would ask what loaders
+
+2
+00:00:06,810 --> 00:00:13,500
+are web bag was designed to help you bundle all your dependencies into one single file.
+
+3
+00:00:13,500 --> 00:00:16,120
+What kind of dependencies are we talking about.
+
+4
+00:00:16,260 --> 00:00:22,980
+Usually dependencies are other javascript modules that your main JavaScript file requires in order to
+
+5
+00:00:22,980 --> 00:00:24,180
+do its job.
+
+6
+00:00:24,480 --> 00:00:27,320
+But we can do more than that is left back.
+
+7
+00:00:27,330 --> 00:00:35,480
+You can import SS files right into your javascript code you can import SAS less handle bars example
+
+8
+00:00:35,700 --> 00:00:37,120
+and so much more.
+
+9
+00:00:37,170 --> 00:00:43,980
+There are a lot of things you can import using web pack and the pickle orders are javascript libraries
+
+10
+00:00:44,040 --> 00:00:46,830
+that help you import all that stuff.
+
+11
+00:00:46,830 --> 00:00:52,800
+In the next videos we are going to talk about various loaders that you most probably will use in your
+
+12
+00:00:52,800 --> 00:00:53,460
+projects.

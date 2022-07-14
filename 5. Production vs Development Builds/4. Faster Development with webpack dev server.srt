@@ -1,0 +1,234 @@
+0
+1
+00:00:00,540 --> 00:00:05,650
+In the previous video we created two separate configurations for development and production builds.
+1
+
+2
+00:00:05,670 --> 00:00:11,130
+We did it because our development build should have another settings that the production build, in order
+2
+
+3
+00:00:11,130 --> 00:00:14,300
+to work faster. While developing new features,
+3
+
+4
+00:00:14,310 --> 00:00:19,320
+we want to spend as little time as we can waiting for our code to build.
+4
+
+5
+00:00:19,320 --> 00:00:25,570
+Ideally we want to see our changes in the browser instantly, even without rebuilding stuff.
+5
+
+6
+00:00:25,590 --> 00:00:27,830
+I have a good news for you guys and girls.
+6
+
+7
+00:00:27,840 --> 00:00:29,000
+We can make it happen!
+7
+
+8
+00:00:29,160 --> 00:00:35,530
+And in this video I'll show you how. We will need to install webpack-dev-server NPM package.
+8
+
+9
+00:00:35,590 --> 00:00:57,470
+It provides all the things we need. So we are going to the terminal now and installing webpack-dev-server.
+9
+
+10
+00:00:57,520 --> 00:01:00,270
+Now we need to specify options for the dev server.
+10
+
+11
+00:01:00,310 --> 00:01:04,120
+We can just go to our development config and add a couple of lines there.
+11
+
+12
+00:01:07,040 --> 00:01:08,830
+I'm going to webpack.dev.config.
+12
+
+13
+00:01:15,160 --> 00:01:22,260
+And here I will add a new option called devServer.
+13
+
+14
+00:01:22,630 --> 00:01:30,300
+This is an object and inside we need to specify three options. First one is content base,
+14
+
+15
+00:01:35,530 --> 00:01:39,150
+and it should point to our dist folder as an absolute path.
+15
+
+16
+00:01:40,930 --> 00:01:48,680
+So I can copy the absolute path from here and paste it here. It will be the same.
+16
+
+17
+00:01:48,700 --> 00:01:58,330
+The next option is index and here we need to specify the name of the index.html file.
+17
+
+18
+00:01:58,330 --> 00:02:06,430
+So in our case its index.html. And the third option will be port on which this webpack-dev-server will
+18
+
+19
+00:02:06,430 --> 00:02:13,050
+be running. I will put 9000 here.
+19
+
+20
+00:02:13,120 --> 00:02:17,580
+Now we need to change our NPM script for development build so it will use webpack-dev-server.
+20
+
+21
+00:02:17,590 --> 00:02:19,030
+I will go to the package.json
+21
+
+22
+00:02:19,040 --> 00:02:29,200
+and here I can see our development script. So I will replace it with a webpack-dev-server.
+22
+
+23
+00:02:29,200 --> 00:02:33,460
+Here instead of webpack I will write webpack-dev-server
+23
+
+24
+00:02:36,870 --> 00:02:43,610
+and at the end of this command I will write --hot. And that's it!
+24
+
+25
+00:02:43,620 --> 00:02:47,250
+Let's run our development build and see what happens.
+25
+
+26
+00:02:47,290 --> 00:02:50,780
+I will go to the terminal and run npm run dev.
+26
+
+27
+00:02:55,960 --> 00:03:08,400
+So the build is ready. And webpack said that project is running at the http://localhost:9000. So I will
+27
+
+28
+00:03:08,400 --> 00:03:10,980
+open this URL in the browser.
+28
+
+29
+00:03:23,440 --> 00:03:24,600
+And here we have our page.
+29
+
+30
+00:03:27,580 --> 00:03:37,320
+I will now put my browser and my editor on one screen side by side.
+30
+
+31
+00:03:37,430 --> 00:03:39,920
+Now let's change something in the index.js.
+31
+
+32
+00:03:48,220 --> 00:03:51,210
+I will create a second page here.
+32
+
+33
+00:03:51,290 --> 00:03:52,700
+Just copy this two lines
+33
+
+34
+00:03:57,010 --> 00:03:59,120
+And change the variable into heading2.
+34
+
+35
+00:04:01,960 --> 00:04:04,890
+So I have created the second heading now.
+35
+
+36
+00:04:05,220 --> 00:04:07,400
+And the magic begins.
+36
+
+37
+00:04:07,400 --> 00:04:10,080
+I am saving this file and...
+37
+
+38
+00:04:13,110 --> 00:04:14,070
+you saw it!?
+38
+
+39
+00:04:14,260 --> 00:04:20,420
+We got an updated version in our browser instantly! without running webpack in the terminal!
+39
+
+40
+00:04:20,430 --> 00:04:21,860
+Pure magic!
+40
+
+41
+00:04:21,990 --> 00:04:24,340
+We can do the same with our css.
+41
+
+42
+00:04:24,420 --> 00:04:28,590
+I will go to the hello-world-button styles and change the color of the button.
+42
+
+43
+00:04:31,490 --> 00:04:37,580
+Now I'm inside hello-world-button.scss file, and I want to change button background color
+43
+
+44
+00:04:42,780 --> 00:04:43,350
+to red.
+44
+
+45
+00:04:48,870 --> 00:04:50,700
+And I am saving the file...
+45
+
+46
+00:04:54,470 --> 00:05:01,140
+You saw it again!? It works instantly! In this video we have learned how to get our changes in the browser without
+46
+
+47
+00:05:01,210 --> 00:05:04,750
+manually running webpack, and also  have seen some magic.

@@ -1,0 +1,164 @@
+0
+1
+00:00:01,050 --> 00:00:08,750
+In the previous video we learned how to generate the html file automatically during each build. In this
+1
+
+2
+00:00:08,750 --> 00:00:09,360
+video
+2
+
+3
+00:00:09,380 --> 00:00:12,120
+We are going to learn how to customize this file.
+3
+
+4
+00:00:12,350 --> 00:00:19,830
+In particular we are going to pass custom options to it. If you look carefully at the generated file, you
+4
+
+5
+00:00:19,880 --> 00:00:23,000
+will notice that Webpack changed the page title.
+5
+
+6
+00:00:25,990 --> 00:00:26,680
+Earlier
+6
+
+7
+00:00:26,710 --> 00:00:30,910
+the title was hello world and now it is Webpack app.
+7
+
+8
+00:00:30,940 --> 00:00:33,860
+We want our title back and there is a way to get it back.
+8
+
+9
+00:00:34,330 --> 00:00:46,410
+Let's go to the Webpack configuration.
+9
+
+10
+00:00:46,540 --> 00:00:48,490
+Here we can pass additional options
+10
+
+11
+00:00:48,490 --> 00:00:52,180
+to this plugin. For example we can specify a custom title
+11
+
+12
+00:01:01,160 --> 00:01:01,820
+Actually,
+12
+
+13
+00:01:01,930 --> 00:01:03,870
+we can customize more things.
+13
+
+14
+00:01:03,970 --> 00:01:12,560
+We can also specify the name of the generated file and provide additional meta tags. Let's specify
+14
+
+15
+00:01:12,620 --> 00:01:13,760
+a custom file name.
+15
+
+16
+00:01:24,890 --> 00:01:25,520
+By the way,
+16
+
+17
+00:01:25,520 --> 00:01:28,040
+we can also specify a subfolder here.
+17
+
+18
+00:01:34,450 --> 00:01:42,160
+This tells Webpack to create a subfolder in the dist folder and put the html file inside this subfolder.
+18
+
+19
+00:01:42,380 --> 00:01:44,440
+Let's provide an additional meta tag.
+19
+
+20
+00:01:57,380 --> 00:02:01,790
+This tells Webpack to add a description meta tag to the page.
+20
+
+21
+00:02:01,920 --> 00:02:12,370
+Let's run the build process and check if anything changes.
+21
+
+22
+00:02:12,400 --> 00:02:13,920
+Let's go back to the text editor.
+22
+
+23
+00:02:17,080 --> 00:02:24,470
+As you can see now we have a subfolder inside the dist folder and inside this subfolder there is
+23
+
+24
+00:02:24,480 --> 00:02:29,500
+our html file.
+24
+
+25
+00:02:29,700 --> 00:02:35,490
+It has our own title which is hello world and our own description which is some description.
+25
+
+26
+00:02:40,260 --> 00:02:47,190
+Let's leave the filename as it was by default. I will remove the filename from options.
+26
+
+27
+00:02:47,380 --> 00:02:49,700
+There are more options you can customize.
+27
+
+28
+00:02:49,870 --> 00:02:53,470
+All these options are listed on the Github page of this plugin.
+28
+
+29
+00:02:57,960 --> 00:03:00,120
+If you scroll down you will see the list of options
+29
+
+30
+00:03:00,120 --> 00:03:00,960
+you can customize.
+30
+
+31
+00:03:05,770 --> 00:03:08,760
+This is a list of options. It's quite big.
+31
+
+32
+00:03:12,930 --> 00:03:17,640
+By the way you can even provide your own template for the html file.
+32
+
+33
+00:03:17,640 --> 00:03:23,270
+This way you can fully customize how it looks. In the next video you'll see how you can do it.

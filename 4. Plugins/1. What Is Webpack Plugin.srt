@@ -1,0 +1,64 @@
+0
+1
+00:00:01,110 --> 00:00:07,800
+In this section we are going to learn about Webpack plugins. A plugin is a Javascript library that adds functionality
+1
+
+2
+00:00:07,800 --> 00:00:09,650
+to the Webpack itself.
+2
+
+3
+00:00:09,650 --> 00:00:12,570
+Plugins can do everything that loaders cannot do.
+3
+
+4
+00:00:12,600 --> 00:00:18,510
+We use loaders for example when we need to import different files. When we need to import css files,
+4
+
+5
+00:00:18,510 --> 00:00:23,590
+we use css loader, and when we need to import xml files, we use xml loader.
+5
+
+6
+00:00:23,670 --> 00:00:29,920
+But what if you need to do something else than importing a new type of file? With plugins
+6
+
+7
+00:00:29,940 --> 00:00:31,090
+we can do much more.
+7
+
+8
+00:00:31,110 --> 00:00:34,960
+We can define global constants across the whole project.
+8
+
+9
+00:00:34,980 --> 00:00:40,670
+We can minify our resulting bundle so it consumes less space and is faster to download.
+9
+
+10
+00:00:40,680 --> 00:00:43,440
+We can also generate new files, other than the bundle.js.
+10
+
+11
+00:00:43,440 --> 00:00:51,420
+Webpack itself is built on the same plugin system that we can use in our Webpack configuration.
+11
+
+12
+00:00:51,950 --> 00:00:53,010
+In the next video
+12
+
+13
+00:00:53,010 --> 00:00:56,690
+We will have a look at a plugin that can minify our resulting bundle.

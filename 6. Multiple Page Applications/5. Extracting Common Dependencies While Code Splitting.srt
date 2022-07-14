@@ -1,0 +1,489 @@
+0
+1
+00:00:00,410 --> 00:00:05,350
+In this video we're going to learn how to handle common dependencies between multiple bundles.
+1
+
+2
+00:00:05,430 --> 00:00:10,890
+Earlier we have seen how we can split our javascript code between multiple bundles and how to generate
+2
+
+3
+00:00:10,920 --> 00:00:17,180
+multiple html pages. But sometimes all the website pages depend on some common library or a framework.
+3
+
+4
+00:00:17,190 --> 00:00:19,290
+Let's have a look at a simple example.
+4
+
+5
+00:00:19,350 --> 00:00:23,290
+Imagine that you want to show the name of the current page in the heading.
+5
+
+6
+00:00:23,310 --> 00:00:27,240
+For this you would need to modify our heading component.
+6
+
+7
+00:00:27,390 --> 00:00:30,120
+I'll go to the heading component JavaScript file
+7
+
+8
+00:00:33,030 --> 00:00:39,570
+and I'll modify something in our H1 element. I will add here the page name.
+8
+
+9
+00:00:45,080 --> 00:00:47,620
+For this I would introduce a page name variable.
+9
+
+10
+00:00:54,760 --> 00:00:56,570
+I also put it in the quotes.
+10
+
+11
+00:01:01,120 --> 00:01:03,000
+Since we are using page name variable here,
+11
+
+12
+00:01:03,040 --> 00:01:05,390
+we would need to add it as an argument,
+12
+
+13
+00:01:05,440 --> 00:01:10,540
+to the render function. Since we added an argument to the render function,
+13
+
+14
+00:01:10,550 --> 00:01:12,830
+we need to change all the invocations of it.
+14
+
+15
+00:01:12,950 --> 00:01:18,180
+We have two places where we use heading component. In the hello-world.js and kiwi.js.
+15
+
+16
+00:01:18,240 --> 00:01:20,010
+First I will go to the 
+16
+
+17
+00:01:20,070 --> 00:01:20,490
+hello-world.js.
+17
+
+18
+00:01:23,780 --> 00:01:28,460
+Here we are using our heading component and invoking the render function.
+18
+
+19
+00:01:28,460 --> 00:01:36,360
+So we now have one argument that we need to pass, and I will pass the name of the page which is 
+19
+
+20
+00:01:36,370 --> 00:01:36,740
+hello world.
+20
+
+21
+00:01:41,600 --> 00:01:45,260
+In order to make the first letter of the page name uppercase,
+21
+
+22
+00:01:45,370 --> 00:01:55,570
+we will use lodash. So I will use the lodash function named upperFirst.
+22
+
+23
+00:01:55,880 --> 00:02:02,100
+This function will make the first letter of our hello world string a capital letter.
+23
+
+24
+00:02:02,120 --> 00:02:08,240
+This is not the best solution for make an uppercase strings but it suits our example ideally. In order
+24
+
+25
+00:02:08,240 --> 00:02:09,220
+to use lodash,
+25
+
+26
+00:02:09,220 --> 00:02:10,550
+we would need to import it.
+26
+
+27
+00:02:18,570 --> 00:02:20,470
+And we also need to install it.
+27
+
+28
+00:02:22,340 --> 00:02:23,700
+So I will go to the terminal
+28
+
+29
+00:02:28,250 --> 00:02:33,770
+and I will install lodash.
+29
+
+30
+00:02:39,620 --> 00:02:41,130
+OK lodash is installed.
+30
+
+31
+00:02:41,680 --> 00:02:48,670
+Then we need to go back to our editor and basically do the same for the kiwi.js page.
+31
+
+32
+00:02:48,670 --> 00:02:53,620
+So what I will do here, I will pass the name of the page
+32
+
+33
+00:02:56,860 --> 00:03:03,450
+which is capitalized. It will be kiwi. And we also need to import lodash library from here as well.
+33
+
+34
+00:03:08,950 --> 00:03:09,440
+cool.
+34
+
+35
+00:03:09,810 --> 00:03:11,700
+So now we need to run webpack.
+35
+
+36
+00:03:18,260 --> 00:03:21,440
+Now if you have a look at the files webpack has generated for us,
+36
+
+37
+00:03:21,450 --> 00:03:24,860
+we can notice that our javascript bundles became pretty big.
+37
+
+38
+00:03:35,310 --> 00:03:35,860
+kiwi.js
+38
+
+39
+00:03:35,970 --> 00:03:45,460
+takes 70 kilobytes, and hello-world.js also takes 70 kilobytes. But 70 kilobytes is too much for
+39
+
+40
+00:03:45,460 --> 00:03:49,080
+10 or 15 lines of code that we have in those modules.
+40
+
+41
+00:03:49,720 --> 00:03:51,190
+So what happened?
+41
+
+42
+00:03:51,190 --> 00:03:55,270
+Remember we included lodash at the beginning of the file?
+42
+
+43
+00:03:55,480 --> 00:03:59,630
+It seems webpack has included lodash in both javascript bundles and lodash
+43
+
+44
+00:03:59,630 --> 00:04:01,180
+is quite big.
+44
+
+45
+00:04:01,180 --> 00:04:07,270
+Now every time we change something in kiwi.js the new 70 kilobyte bundle will be generated. And our
+45
+
+46
+00:04:07,270 --> 00:04:09,390
+users will need to download it again.
+46
+
+47
+00:04:09,500 --> 00:04:10,570
+Sounds not very nice,
+47
+
+48
+00:04:10,590 --> 00:04:11,320
+right?
+48
+
+49
+00:04:11,850 --> 00:04:17,990
+Webpack has a mechanism that can extract lodash and any other common dependencies into its own bundle.
+49
+
+50
+00:04:18,040 --> 00:04:21,130
+Let's see how we can do it.
+50
+
+51
+00:04:21,160 --> 00:04:23,350
+We need to go to webpack.production.config.js
+51
+
+52
+00:04:23,400 --> 00:04:31,850
+and add a new configuration option here right below the mode.
+52
+
+53
+00:04:32,050 --> 00:04:33,490
+It is called optimization.
+53
+
+54
+00:04:37,220 --> 00:04:41,990
+It is an object and inside it we can specify another option which is called splitChunks.
+54
+
+55
+00:04:46,970 --> 00:04:47,770
+And inside
+55
+
+56
+00:04:47,800 --> 00:04:50,630
+we need to specify yet another option
+56
+
+57
+00:04:50,680 --> 00:04:55,150
+which is called chunks, and here specify the value "all".
+57
+
+58
+00:04:58,650 --> 00:05:03,570
+So after we have added this new configuration option let's run webpack and see what happens.
+58
+
+59
+00:05:14,270 --> 00:05:15,570
+If we have a look into webpack
+59
+
+60
+00:05:15,620 --> 00:05:16,160
+output,
+60
+
+61
+00:05:20,270 --> 00:05:23,650
+we'll see that both hello-world.js and kiwi.js
+61
+
+62
+00:05:23,650 --> 00:05:35,730
+consume less than 2 kilobytes now. Which is pretty nice! And we have now third javascript bundle
+62
+
+63
+00:05:36,230 --> 00:05:46,020
+which is called vendors~hello-world~kiwi.<something>.js which consumes around 70 kilobytes. So in this bundle
+63
+
+64
+00:05:46,050 --> 00:05:47,070
+we have lodash.
+64
+
+65
+00:05:50,170 --> 00:05:56,240
+This third bundle will be cached separately and now our users don't need to download it when we change something
+65
+
+66
+00:05:56,250 --> 00:05:56,750
+in kiwi.js
+66
+
+67
+00:05:56,770 --> 00:06:04,780
+or hello-world.js. Since we have a new bundle, how webpack knows where to include it?
+67
+
+68
+00:06:04,780 --> 00:06:06,930
+Will all html pages include it by default?
+68
+
+69
+00:06:07,170 --> 00:06:12,980
+The answer is we should specifically tell webpack to include it for every html page that needs it.
+69
+
+70
+00:06:13,110 --> 00:06:17,760
+In our case both our pages need this bundle.
+70
+
+71
+00:06:17,880 --> 00:06:27,030
+So now let's go back to our editor to our webpack  configuration and scroll down to the HtmlWebpackPlugin.
+71
+
+72
+00:06:27,450 --> 00:06:31,110
+And here remember we included chunks.
+72
+
+73
+00:06:31,220 --> 00:06:36,430
+So now every our html page would need two chunks instead of one.
+73
+
+74
+00:06:36,440 --> 00:06:43,280
+And the second chunk would be this common chunk, common bundle, which includes lodash library. 
+74
+
+75
+00:06:43,280 --> 00:06:45,650
+Which is called
+75
+
+76
+00:06:54,300 --> 00:06:58,440
+vendors~hello-world~kiwi.
+76
+
+77
+00:07:01,370 --> 00:07:06,890
+You would need to specify the same chunk name for our kiwi.html file as well.
+77
+
+78
+00:07:12,300 --> 00:07:23,510
+Now let's run webpack once more and check how it works in the browser.
+78
+
+79
+00:07:23,580 --> 00:07:25,250
+Let's go to our Web browser now.
+79
+
+80
+00:07:29,620 --> 00:07:36,440
+But first I would need to copy the path to our html file. So I will go to the editor to the dist folder
+80
+
+81
+00:07:36,830 --> 00:07:38,440
+and I will copy the path
+81
+
+82
+00:07:38,450 --> 00:07:49,130
+to hello-world.html file, and go to the browser again. I paste it, and now we see our page, Hello World
+82
+
+83
+00:07:49,130 --> 00:07:50,060
+page, which is working.
+83
+
+84
+00:07:50,360 --> 00:07:51,760
+So let's check another one.
+84
+
+85
+00:07:52,760 --> 00:08:00,370
+I'll copy the path to the kiwi.html  file and go to the browser again and open it here.
+85
+
+86
+00:08:00,360 --> 00:08:03,320
+Yes and it also works.
+86
+
+87
+00:08:03,340 --> 00:08:09,090
+And it says "This is Kiwi  page". As we can see, both our pages work perfectly.
+87
+
+88
+00:08:09,170 --> 00:08:13,760
+And if we have a look into developer tools, into a network tab, you you'll see that in addition to the
+88
+
+89
+00:08:13,760 --> 00:08:17,630
+kiwi.js bundle and kiwi.css bundle
+89
+
+90
+00:08:17,810 --> 00:08:21,630
+we also have a third bundle which is called
+90
+
+91
+00:08:21,650 --> 00:08:25,210
+vendors~hello-world~kiwi.
+91
+
+92
+00:08:25,250 --> 00:08:29,980
+This is how we can handle our common dependencies between multiple html pages.
+92
+
+93
+00:08:29,990 --> 00:08:35,180
+We also can use this mechanism if we want to extract some external dependencies, like React for example,
+93
+
+94
+00:08:35,360 --> 00:08:36,460
+into a separate bundle.
+94
+
+95
+00:08:36,560 --> 00:08:42,140
+And if we don't have multiple html files, this may be useful for browser caching as well.
+95
+
+96
+00:08:42,140 --> 00:08:48,050
+Every time we change something in our javascript code, users would have to download onto our javascript
+96
+
+97
+00:08:48,050 --> 00:08:53,960
+code, without all external dependencies that haven't been changed. In this video we have learned how
+97
+
+98
+00:08:53,960 --> 00:08:56,270
+to handle common dependencies between multiple pages.

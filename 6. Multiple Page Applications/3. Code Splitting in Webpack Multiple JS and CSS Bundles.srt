@@ -1,0 +1,294 @@
+0
+1
+00:00:00,930 --> 00:00:07,330
+In this video we will learn how to create two separate javascript bundles instead of one. In our future videos
+1
+
+2
+00:00:07,350 --> 00:00:12,630
+we'll include the first javascript bundle on the hello world page and the second javascript bundle on
+2
+
+3
+00:00:12,630 --> 00:00:13,590
+kiwi page.
+3
+
+4
+00:00:13,650 --> 00:00:15,690
+So let's create our second page.
+4
+
+5
+00:00:15,790 --> 00:00:19,640
+We will reuse our kiwi image component that we created in the previous video.
+5
+
+6
+00:00:22,930 --> 00:00:27,040
+So now I will create a new script file for our kiwi page
+6
+
+7
+00:00:31,030 --> 00:00:31,930
+and I'll name it
+7
+
+8
+00:00:31,930 --> 00:00:32,930
+kiwi.js.
+8
+
+9
+00:00:36,500 --> 00:00:39,330
+This Javascript file to present our second page,
+9
+
+10
+00:00:39,330 --> 00:00:40,380
+kiwi page.
+10
+
+11
+00:00:40,480 --> 00:00:46,630
+It will look almost the same as the hello world page, but instead with the kiwi component inside.
+11
+
+12
+00:00:46,660 --> 00:00:48,630
+So let's create it.
+12
+
+13
+00:00:48,820 --> 00:00:50,260
+First let's import heading,
+13
+
+14
+00:00:55,010 --> 00:00:56,930
+because on this page we will also have heading.
+14
+
+15
+00:01:06,700 --> 00:01:10,750
+And now let's create an instance of our heading component and render it.
+15
+
+16
+00:01:19,830 --> 00:01:20,550
+Besides heading
+16
+
+17
+00:01:20,560 --> 00:01:25,200
+we also need our kiwi image component which we just created in the previous video.
+17
+
+18
+00:01:25,390 --> 00:01:26,310
+So let's import it.
+18
+
+19
+00:01:41,200 --> 00:01:41,540
+okay.
+19
+
+20
+00:01:41,550 --> 00:01:44,510
+And now we need to instantiate it and to render it.
+20
+
+21
+00:02:00,280 --> 00:02:00,550
+cool.
+21
+
+22
+00:02:00,550 --> 00:02:02,980
+It seems this page is ready. 
+22
+
+23
+00:02:03,130 --> 00:02:17,120
+Let's also rename our existing index.js file into hello-world.js.
+23
+
+24
+00:02:17,540 --> 00:02:22,430
+Now we have two different JavaScript files that basically represent two different entry points that
+24
+
+25
+00:02:22,430 --> 00:02:25,520
+should be included inside two different html pages.
+25
+
+26
+00:02:25,520 --> 00:02:30,210
+Let's tell webpack to create two separate javascript bundles out of these two files.
+26
+
+27
+00:02:30,440 --> 00:02:32,930
+We need to go to 
+27
+
+28
+00:02:32,990 --> 00:02:33,440
+webpack.production config.js.
+28
+
+29
+00:02:36,450 --> 00:02:39,920
+And here we need to change something in our entry.
+29
+
+30
+00:02:40,000 --> 00:02:46,830
+Basically we'll split this one file into two files so what we need to do is to replace this string with
+30
+
+31
+00:02:46,830 --> 00:02:52,880
+a javascript object. Inside this object we will have two properties.
+31
+
+32
+00:02:52,890 --> 00:02:55,950
+First one would be hello world
+32
+
+33
+00:03:00,410 --> 00:03:03,230
+and it will point to the hello world file.
+33
+
+34
+00:03:08,630 --> 00:03:11,730
+And the second property would be named kiwi.
+34
+
+35
+00:03:14,850 --> 00:03:18,310
+And it will point to our kiwi.js file that he just created.
+35
+
+36
+00:03:25,200 --> 00:03:27,470
+Since we have two entry points instead of one,
+36
+
+37
+00:03:27,480 --> 00:03:31,950
+now we need to specify somehow that their names should be different.
+37
+
+38
+00:03:31,960 --> 00:03:37,480
+With current configuration both of them will be named bundle.js.
+38
+
+39
+00:03:38,010 --> 00:03:44,370
+Of course they will have content hash inside but it would be nice if we name it something different
+39
+
+40
+00:03:44,400 --> 00:03:45,860
+that bundle.js. For example,
+40
+
+41
+00:03:45,870 --> 00:03:48,060
+hello-world.js and kiwi.js.
+41
+
+42
+00:03:50,790 --> 00:03:59,580
+So for this we just need to replace this bundle with a [name]. Like this.
+42
+
+43
+00:04:00,610 --> 00:04:09,360
+So webpack will just take the name of the property from the entry point configuration option and put it
+43
+
+44
+00:04:09,360 --> 00:04:10,200
+here.
+44
+
+45
+00:04:10,430 --> 00:04:18,000
+And for the second file it will take other property and put it here.
+45
+
+46
+00:04:18,600 --> 00:04:21,000
+By the way we can do the same trick for css files.
+46
+
+47
+00:04:21,000 --> 00:04:27,330
+We just need to go to the mini-css-extract-plugin configuration and change the file name to
+47
+
+48
+00:04:27,330 --> 00:04:28,710
+something very similar.
+48
+
+49
+00:04:28,730 --> 00:04:33,900
+So we will also use [name] there.
+49
+
+50
+00:04:33,960 --> 00:04:43,140
+Let's go to our configuration and change... inside this string we will change styles to be [name].
+50
+
+51
+00:04:48,290 --> 00:04:53,090
+So let's run webpack now and check what we get after that in our dist folder.
+51
+
+52
+00:04:53,090 --> 00:04:54,220
+Let's go to the terminal
+52
+
+53
+00:04:59,660 --> 00:05:00,950
+And run npm run build.
+53
+
+54
+00:05:06,940 --> 00:05:08,320
+it seems our build is done.
+54
+
+55
+00:05:08,350 --> 00:05:11,980
+Let's go to our editor now and have a look at our dist folder.
+55
+
+56
+00:05:15,940 --> 00:05:21,670
+We see that now we have two different JavaScript files inside our dist folder. One is called hello-world.<something>.js
+56
+
+57
+00:05:21,670 --> 00:05:26,840
+and another one called kiwi.<something>.js.
+57
+
+58
+00:05:26,980 --> 00:05:32,890
+And we also have two different css files. In this video
+58
+
+59
+00:05:32,910 --> 00:05:35,690
+we have learned how to split our code into multiple bundles.

@@ -1,0 +1,379 @@
+0
+1
+00:00:01,340 --> 00:00:06,580
+One of the coolest features of Webpack is the ability to import CSS into javascript files.
+1
+
+2
+00:00:06,710 --> 00:00:09,560
+In this video we are going to learn how to do this.
+2
+
+3
+00:00:09,650 --> 00:00:15,110
+Well, frankly speaking, we can import lots of different stuff into our javascript and we have already
+3
+
+4
+00:00:15,110 --> 00:00:16,820
+seen how to import images.
+4
+
+5
+00:00:16,820 --> 00:00:23,390
+But why is it so cool to import CSS? With modern component-based frameworks like React or latest versions
+5
+
+6
+00:00:23,390 --> 00:00:24,270
+of Angular,
+6
+
+7
+00:00:24,320 --> 00:00:29,520
+it has become a best practice to separate your web application into many isolated components.
+7
+
+8
+00:00:29,600 --> 00:00:35,730
+Each component has its own behavior described by javascript, and its own styles described by css.
+8
+
+9
+00:00:35,810 --> 00:00:39,950
+It is much better when component styles and behavior are in the same place.
+9
+
+10
+00:00:40,160 --> 00:00:45,830
+Then it is much easier to fix bugs, add new features, and to reuse such components.
+10
+
+11
+00:00:45,830 --> 00:00:49,450
+Let's refactor hello-world.js file and make it a component.
+11
+
+12
+00:00:49,520 --> 00:00:56,000
+It will be a button, and when user clicks on it, it will write "Hello world" to browser console.
+12
+
+13
+00:00:56,020 --> 00:01:02,090
+We need to create a directory called components and inside it make another directory 
+13
+
+14
+00:01:02,090 --> 00:01:02,440
+called hello-world-button.
+14
+
+15
+00:01:14,520 --> 00:01:21,250
+Lets move our hello-world.js file into this directory and rename it to
+15
+
+16
+00:01:21,340 --> 00:01:21,840
+hello-world-button.js
+16
+
+17
+00:01:35,260 --> 00:01:39,130
+Then we will refactor helloWorld function into the
+17
+
+18
+00:01:39,130 --> 00:01:40,000
+HelloWorldButton class.
+18
+
+19
+00:01:52,640 --> 00:01:57,920
+This class will render a button, and when somebody clicks on this button, it will print "Hello World"
+19
+
+20
+00:01:57,920 --> 00:01:58,700
+into the browser.
+20
+
+21
+00:01:58,700 --> 00:02:03,800
+We will create a render function which will be responsible for rendering a button and appending it to
+21
+
+22
+00:02:03,800 --> 00:02:10,940
+the body DOM element. So I will remove this, and instead create a render function.
+22
+
+23
+00:02:29,130 --> 00:02:44,460
+It will have caption "Hello world". Now we will append this button to the body DOM element.
+23
+
+24
+00:02:44,620 --> 00:02:48,310
+Now we need to export our new component instead of
+24
+
+25
+00:02:48,310 --> 00:02:48,820
+helloWorld function.
+25
+
+26
+00:02:56,090 --> 00:02:59,780
+Let's go to index.js and import our new shiny component there.
+26
+
+27
+00:03:09,350 --> 00:03:12,100
+It is now inside the components directory...
+27
+
+28
+00:03:13,970 --> 00:03:16,990
+and inside  hello-world-button directory...
+28
+
+29
+00:03:23,500 --> 00:03:28,180
+So now we need to instantiate our component and call the render function.
+29
+
+30
+00:03:39,370 --> 00:03:48,560
+Let's remove addImage function for now.
+30
+
+31
+00:03:48,900 --> 00:03:52,560
+Now let's run Webpack in the terminal and check what we have in the browser.
+31
+
+32
+00:04:01,060 --> 00:04:08,720
+I will refresh my page, and now we don't have an image there anymore, but we have a button "Hello world".
+32
+
+33
+00:04:12,360 --> 00:04:14,770
+But this button doesn't do anything yet.
+33
+
+34
+00:04:14,850 --> 00:04:16,560
+If I click on it, nothing happens.
+34
+
+35
+00:04:16,650 --> 00:04:19,620
+Let's go to our editor and add some functionality to it.
+35
+
+36
+00:04:23,930 --> 00:04:30,410
+I will add onclick property to our button. When somebody clicks on it, it will add "p" DOM element to the
+36
+
+37
+00:04:30,470 --> 00:04:57,640
+"body" DOM element with a text "Hello World".
+37
+
+38
+00:04:57,690 --> 00:05:02,370
+Now it's time to create some styles. I will add classes to the button and p DOM elements.
+38
+
+39
+00:05:19,650 --> 00:05:20,160
+Let's create
+39
+
+40
+00:05:20,170 --> 00:05:24,120
+a new css file and put it together with our JavaScript file.
+40
+
+41
+00:05:24,200 --> 00:05:26,120
+We'll also put some styles inside.
+41
+
+42
+00:05:34,020 --> 00:05:42,240
+It will be like simple styles for our button specifying font size, padding, colors. And it'll be also some
+42
+
+43
+00:05:42,240 --> 00:05:44,080
+simple styles for
+43
+
+44
+00:05:44,100 --> 00:06:08,010
+hello-world-text.
+44
+
+45
+00:06:08,140 --> 00:06:11,080
+Now we need to import CSS inside our component.
+45
+
+46
+00:06:25,250 --> 00:06:25,690
+This way
+46
+
+47
+00:06:25,690 --> 00:06:30,520
+people usually organize their code in modern frontend frameworks like React or latest versions
+47
+
+48
+00:06:30,530 --> 00:06:32,480
+of Angular.
+48
+
+49
+00:06:32,490 --> 00:06:42,430
+Inside directory named after our component, in our case hello world button, we have JavaScript file with behavior, and CSS file
+49
+
+50
+00:06:42,810 --> 00:06:43,780
+with some styles
+50
+
+51
+00:06:46,700 --> 00:06:50,240
+As we can guess Webpack doesn't know yet how to import CSS.
+51
+
+52
+00:06:50,420 --> 00:06:52,630
+So let's teach Webpack how to do it.
+52
+
+53
+00:06:52,670 --> 00:06:55,730
+We need to go to webpack.config.js and add a new rule there.
+53
+
+54
+00:07:01,790 --> 00:07:09,000
+It will affect all CSS files.
+54
+
+55
+00:07:09,330 --> 00:07:12,820
+Now I will specify not only one but two loaders.
+55
+
+56
+00:07:16,830 --> 00:07:23,370
+And as you can see, we can not only use different loaders with Webpack, but we can also combine multiple loaders
+56
+
+57
+00:07:23,430 --> 00:07:24,750
+inside one rule.
+57
+
+58
+00:07:24,900 --> 00:07:31,140
+These rule tells Webpack that every time it sees a css  file, it needs to use css-loader and style-loader
+58
+
+59
+00:07:31,320 --> 00:07:32,840
+in order to import it.
+59
+
+60
+00:07:32,880 --> 00:07:39,240
+css-loader will read our CSS from file and style-loader will create style tags inside our HTML page
+60
+
+61
+00:07:39,480 --> 00:07:43,630
+and put CSS into it. In order for this to work,
+61
+
+62
+00:07:43,680 --> 00:07:46,670
+we have to install css-loader and style-loader.
+62
+
+63
+00:07:46,740 --> 00:07:58,320
+So let's go to the terminal and I will install css-loader and style-loader.
+63
+
+64
+00:07:58,350 --> 00:08:03,360
+I have already run this command so I have this loaders installed, but you guys need to run this.
+64
+
+65
+00:08:06,940 --> 00:08:09,900
+So let's run Webpack now and check what happens in the browser.
+65
+
+66
+00:08:16,460 --> 00:08:17,890
+Everything ok...
+66
+
+67
+00:08:18,060 --> 00:08:21,630
+I will go to the browser and refresh my page.
+67
+
+68
+00:08:23,280 --> 00:08:26,760
+And I click on the button, I see the text.
+68
+
+69
+00:08:26,760 --> 00:08:32,310
+So as you can see our button became larger and greener than it was.
+69
+
+70
+00:08:32,310 --> 00:08:36,620
+And when I click on it, greet text appears. It seems we have a lot of green here.
+70
+
+71
+00:08:36,630 --> 00:08:39,670
+Let's go to the developer tools and check our head tag.
+71
+
+72
+00:08:42,970 --> 00:08:43,690
+We have a head tag here,
+72
+
+73
+00:08:44,660 --> 00:08:49,430
+and we have a style tag here, and inside the style tag we have our CSS.
+73
+
+74
+00:08:52,500 --> 00:08:56,980
+So it seems everything works. 
+74
+
+75
+00:08:56,990 --> 00:09:02,450
+Congratulations! In this video we have successfully imported CSS into our javascript and learned how to combine multiple
+75
+
+76
+00:09:02,450 --> 00:09:04,180
+loaders inside a single rule!

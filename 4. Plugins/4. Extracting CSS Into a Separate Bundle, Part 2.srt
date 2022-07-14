@@ -1,0 +1,204 @@
+0
+1
+00:00:01,140 --> 00:00:10,630
+So let's go to the text editor and look inside the generated styles.css.
+1
+
+2
+00:00:10,640 --> 00:00:14,050
+Here is all our css from the whole application.
+2
+
+3
+00:00:14,090 --> 00:00:17,600
+Currently our application consists only of one component.
+3
+
+4
+00:00:17,840 --> 00:00:18,560
+Hello world
+4
+
+5
+00:00:18,560 --> 00:00:18,980
+Button.
+5
+
+6
+00:00:21,740 --> 00:00:23,550
+Let's create another component
+6
+
+7
+00:00:23,600 --> 00:00:29,700
+with some styles and check if all the css from both components goes into
+7
+
+8
+00:00:29,700 --> 00:00:34,040
+styles.css file. We'll create a component named Heading.
+8
+
+9
+00:00:34,130 --> 00:00:38,480
+So now I will create a Heading directory inside the components directory,
+9
+
+10
+00:00:45,920 --> 00:00:48,730
+and inside this directory I will create a new
+10
+
+11
+00:00:48,780 --> 00:00:49,320
+file.
+11
+
+12
+00:00:49,370 --> 00:00:49,710
+Heading
+12
+
+13
+00:00:49,720 --> 00:00:50,080
+.js
+13
+
+14
+00:00:55,560 --> 00:00:58,230
+Let's create a new class for our component.
+14
+
+15
+00:01:03,830 --> 00:01:04,470
+This class
+15
+
+16
+00:01:04,490 --> 00:01:07,010
+will have only one method called render.
+16
+
+17
+00:01:11,410 --> 00:01:37,110
+This method will create an H1 element and insert it into the body element.
+17
+
+18
+00:01:37,270 --> 00:01:39,990
+I will put some text inside H1.
+18
+
+19
+00:01:49,760 --> 00:02:01,460
+And I will add this H1 element to the body.
+19
+
+20
+00:02:01,540 --> 00:02:03,700
+Now we need to export this class.
+20
+
+21
+00:02:13,950 --> 00:02:16,240
+Okay, our new component is finished.
+21
+
+22
+00:02:16,540 --> 00:02:21,110
+And what I'd like to do now, is import our styles at the top of the file.
+22
+
+23
+00:02:21,790 --> 00:02:26,320
+We don't have any styles for this component yet, but we'll create them in a moment.
+23
+
+24
+00:02:40,520 --> 00:02:42,920
+Let's create a new file for our styles.
+24
+
+25
+00:02:51,360 --> 00:02:58,390
+I created this file inside the same directory as the javascript file. This file will be very simple.
+25
+
+26
+00:02:58,480 --> 00:03:01,210
+We'll just set a color of an H1  element.
+26
+
+27
+00:03:06,850 --> 00:03:08,440
+I will put "gray" here.
+27
+
+28
+00:03:11,290 --> 00:03:13,630
+It will be enough for this example.
+28
+
+29
+00:03:13,630 --> 00:03:17,020
+Now let's import our new component inside
+29
+
+30
+00:03:17,020 --> 00:03:17,920
+index.js.
+30
+
+31
+00:03:36,760 --> 00:03:42,200
+We need to create an instance of the Heading component and then call the render method.
+31
+
+32
+00:03:58,500 --> 00:04:02,310
+Let's run the build process and have a look at the dist folder.
+32
+
+33
+00:04:09,940 --> 00:04:13,900
+I'm going back to my editor and open styles.css 
+33
+
+34
+00:04:16,690 --> 00:04:23,900
+And here we can see that css for both our components is inside.
+34
+
+35
+00:04:23,900 --> 00:04:33,140
+These styles correspond to the Hello World Button component, and these two lines correspond to the heading component.
+35
+
+36
+00:04:33,160 --> 00:04:40,780
+In other words MiniCssExtractPlugin extracts all our styles from the application and puts them
+36
+
+37
+00:04:40,840 --> 00:04:44,740
+inside a single css file under the dist folder.
+37
+
+38
+00:04:44,740 --> 00:04:47,280
+Now let's check our application in the browser.
+38
+
+39
+00:04:52,710 --> 00:04:58,780
+I refreshed my page in the browser and we got a new heading here which says " Webpack is awesome",
+39
+
+40
+00:04:58,900 --> 00:05:01,800
+which is pretty much true. In this video
+40
+
+41
+00:05:01,810 --> 00:05:05,400
+We learned how to extract our css into a separate file.

@@ -1,0 +1,191 @@
+1
+00:00:01,790 --> 00:00:04,700
+Now let's use our shiny new epic to.
+
+2
+00:00:04,720 --> 00:00:09,860
+Let's go to the HDMI file and remove the first script tag.
+
+3
+00:00:10,040 --> 00:00:12,680
+We don't need it anymore.
+
+4
+00:00:12,680 --> 00:00:18,230
+From now on if you only need one JavaScript file which includes all the code.
+
+5
+00:00:18,230 --> 00:00:24,980
+But in order for this to work we need to explicitly import our dependencies inside JavaScript files.
+
+6
+00:00:26,090 --> 00:00:27,880
+So let's go to the index.
+
+7
+00:00:28,000 --> 00:00:28,730
+J Yes.
+
+8
+00:00:28,790 --> 00:00:31,420
+And import hello world function there.
+
+9
+00:00:33,520 --> 00:00:38,020
+So before using the hello world function we need to import it
+
+10
+00:00:43,790 --> 00:00:44,600
+I'm important.
+
+11
+00:00:44,660 --> 00:00:52,040
+Hello world function from hello world dot J S file which is located inside the same directory as index
+
+12
+00:00:52,070 --> 00:00:53,820
+that G is.
+
+13
+00:00:53,950 --> 00:01:00,400
+We also need to explicitly export hello world function from hello world dot J S file.
+
+14
+00:01:01,270 --> 00:01:08,410
+So I'm going to this file and here at the end of the file I will export hello world function
+
+15
+00:01:17,070 --> 00:01:25,600
+and this syntax that I am using here is a must create six modules web Peg supports my script six modules
+
+16
+00:01:25,660 --> 00:01:26,350
+my default
+
+17
+00:01:30,110 --> 00:01:38,340
+my the way if I go to our index dot HDMI Well I can see here that our script tag includes indexed lot
+
+18
+00:01:38,420 --> 00:01:47,210
+J S but this is not true anymore because what we actually need is a result in bundle when a pack runs
+
+19
+00:01:47,570 --> 00:01:56,110
+it creates the resulting bundle inside the list folder we need to include this result in bundle here.
+
+20
+00:01:56,450 --> 00:02:07,610
+So I will replace SLC index that G S with list slash bundle dot J S this is what we specified inside
+
+21
+00:02:07,640 --> 00:02:13,830
+our of a pack configuration file.
+
+22
+00:02:14,280 --> 00:02:25,760
+Now let's go to the terminal and run our built again.
+
+23
+00:02:26,100 --> 00:02:26,420
+Okay.
+
+24
+00:02:26,440 --> 00:02:31,720
+It turns out that pack shows an error here this error is quite popular.
+
+25
+00:02:31,780 --> 00:02:33,670
+That's why I'm showing it here.
+
+26
+00:02:33,730 --> 00:02:39,700
+I hope when you encounter such an error unintentionally you will know how to fix it.
+
+27
+00:02:39,730 --> 00:02:47,440
+So what this process is that we specified a related pass to the output pass configuration option but
+
+28
+00:02:47,440 --> 00:02:53,170
+instead we need to specify an absolute pass to the least folder.
+
+29
+00:02:53,170 --> 00:02:56,110
+So let's go to our Ed and fix it
+
+30
+00:02:59,500 --> 00:03:04,790
+there is a note J.S. package that helps us to generate absolute passes.
+
+31
+00:03:05,080 --> 00:03:06,700
+It is called path.
+
+32
+00:03:06,730 --> 00:03:08,230
+We need to import at first
+
+33
+00:03:25,810 --> 00:03:34,560
+please note that here I am using the old way of importing modules Coleman J S because inside a pack
+
+34
+00:03:34,570 --> 00:03:39,350
+configuration file we cannot use EC must create six modules.
+
+35
+00:03:39,350 --> 00:03:45,080
+So what I need to do I need to replace this related pass with an absolute pass
+
+36
+00:03:51,230 --> 00:03:56,780
+pass total resolve function converts a sequence of pass segments into an absolute POS
+
+37
+00:04:03,340 --> 00:04:10,030
+as the first argument I will specify the current directory and as the second argument I will specify
+
+38
+00:04:10,030 --> 00:04:12,820
+the relative past to the least directory.
+
+39
+00:04:13,750 --> 00:04:16,540
+Let's go back to the terminal and check if this works
+
+40
+00:04:24,020 --> 00:04:25,890
+it seems everything works fine.
+
+41
+00:04:25,940 --> 00:04:27,860
+Let's go to the editor and check it
+
+42
+00:04:31,920 --> 00:04:32,250
+now.
+
+43
+00:04:32,270 --> 00:04:36,220
+You can see that wetback created a new folder is the name D.
+
+44
+00:04:36,440 --> 00:04:43,460
+And inside this folder there is a new file is the name bundle dot J S.
+
+45
+00:04:43,660 --> 00:04:48,550
+Now let's go to the browser and check if our hello world application still works.
+
+46
+00:04:48,550 --> 00:04:54,210
+I'll refresh my page now and you can see the hello world in the browser console.
+
+47
+00:04:54,670 --> 00:05:01,360
+As you can see the application still works and we have now web back included into the application.
+
+48
+00:05:01,360 --> 00:05:05,920
+So in this video we have learned how to integrate web pack into our application.

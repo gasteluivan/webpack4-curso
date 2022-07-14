@@ -1,0 +1,314 @@
+0
+1
+00:00:00,900 --> 00:00:05,890
+In this video we're going to learn how to import other JavaScript files inside our JavaScript file.
+1
+
+2
+00:00:05,970 --> 00:00:09,660
+What?? - you would say. I already know how to import JavaScript files!
+2
+
+3
+00:00:09,660 --> 00:00:12,260
+You don't need any additional loader for that!
+3
+
+4
+00:00:12,260 --> 00:00:12,690
+And you
+4
+
+5
+00:00:12,690 --> 00:00:13,280
+are right.
+5
+
+6
+00:00:13,290 --> 00:00:14,840
+We actually already did that.
+6
+
+7
+00:00:14,870 --> 00:00:22,520
+We imported hello-world-button.js inside index.js and everything worked out of the box. So why do we need
+7
+
+8
+00:00:22,580 --> 00:00:23,420
+additional loader?
+8
+
+9
+00:00:25,600 --> 00:00:31,150
+Javascript language is based on EcmaScript specification and this specification is evolving all the time.
+9
+
+10
+00:00:31,440 --> 00:00:31,950
+Every time new version
+10
+
+11
+00:00:31,960 --> 00:00:37,990
+EcmaScript specification comes out, browsers go ahead and implement all new features.
+11
+
+12
+00:00:37,990 --> 00:00:42,990
+But it takes time to implement features in all browsers, and we want to use new features right away.
+12
+
+13
+00:00:43,240 --> 00:00:47,850
+We don't want to wait for several years until all browsers will support those features.
+13
+
+14
+00:00:47,890 --> 00:00:49,920
+So what do we do in this situation?
+14
+
+15
+00:00:52,440 --> 00:00:57,370
+Luckily, there is a transpiler out there which can help us to use all the new features
+15
+
+16
+00:00:57,370 --> 00:01:02,950
+right away. It translates the modern JavaScript into old JavaScript, which is supported by all browsers and NodeJS.
+16
+
+17
+00:01:02,950 --> 00:01:07,090
+This transcriber is called Babel, and we will learn how to use it
+17
+
+18
+00:01:07,090 --> 00:01:16,890
+in this video. Let's go to the HelloWorldButton component. We have a lot of hard coded things here.
+18
+
+19
+00:01:16,890 --> 00:01:22,090
+Let's take a css class of our button as an example and put it into a separate property.
+19
+
+20
+00:01:22,110 --> 00:01:25,720
+It will not make our code super clean, but it is good enough for this example.
+20
+
+21
+00:01:28,510 --> 00:01:36,680
+We'll take this class and create a class property here called buttonCssClass.
+21
+
+22
+00:01:46,160 --> 00:01:56,290
+And here we will use our property, like that. So this is what is called class property and it isn't supported
+22
+
+23
+00:01:56,290 --> 00:02:00,120
+by most browsers and NodeJS at the moment of creating this video.
+23
+
+24
+00:02:00,160 --> 00:02:05,500
+Most browsers only allow methods inside javascript classes, but not properties like our 
+24
+
+25
+00:02:05,530 --> 00:02:06,340
+buttonCssClass.
+25
+
+26
+00:02:06,340 --> 00:02:08,770
+If we run Webpack now, it will throw an error.
+26
+
+27
+00:02:08,800 --> 00:02:09,490
+Let's check it.
+27
+
+28
+00:02:18,020 --> 00:02:18,370
+Yeah.
+28
+
+29
+00:02:18,390 --> 00:02:24,840
+There is an error here, and this error also says "You may need an appropriate loader to handle this file
+29
+
+30
+00:02:24,840 --> 00:02:25,300
+type".
+30
+
+31
+00:02:25,470 --> 00:02:26,920
+And actually Webpack is right.
+31
+
+32
+00:02:27,240 --> 00:02:32,220
+Even though class properties are not part of official EcmaScript specification, at least at the time
+32
+
+33
+00:02:32,220 --> 00:02:35,860
+this video is being created, but we can still use them with Webpack.
+33
+
+34
+00:02:35,910 --> 00:02:39,600
+We just need to use a special loader for that, which is called babel-loader.
+34
+
+35
+00:02:39,720 --> 00:02:47,180
+Let's create a new rule for JavaScript files. We will go to webpack.config.js and add a new rule here.
+35
+
+36
+00:02:47,200 --> 00:02:52,540
+This rule will be applicable to all JavaScript files except those files which are located in node_modules
+36
+
+37
+00:02:52,540 --> 00:02:52,980
+folder.
+37
+
+38
+00:03:03,240 --> 00:03:11,630
+We will tell Webpack to use babel-loader for these files.
+38
+
+39
+00:03:11,710 --> 00:03:14,440
+We need to specify a couple of options for babel-loader.
+39
+
+40
+00:03:14,890 --> 00:03:19,290
+As you'll see in the moment we can specify additional options for any loader.
+40
+
+41
+00:03:19,330 --> 00:03:22,400
+Of course this loader should support these options.
+41
+
+42
+00:03:26,750 --> 00:03:28,660
+First option is called presets.
+42
+
+43
+00:03:28,700 --> 00:03:34,820
+We need a special babel preset which is called "env". Env preset will help us to compile EcmaScript 6 and
+43
+
+44
+00:03:34,820 --> 00:03:41,870
+above code down to EcmaScript 5. Env preset includes all the features from the latest EcmaScript specification.
+44
+
+45
+00:03:49,600 --> 00:03:50,770
+As I already said earlier,
+45
+
+46
+00:03:50,770 --> 00:03:54,370
+Class properties are not part of the official EcmaScript specification.
+46
+
+47
+00:03:54,460 --> 00:03:57,560
+So we need a special babel plugin to support this feature.
+47
+
+48
+00:03:57,580 --> 00:04:00,600
+This babel plugin is called "transform-class-properties".
+48
+
+49
+00:04:08,440 --> 00:04:13,360
+If you want to use another modern javascript feature which is not supported by most browsers yet, you
+49
+
+50
+00:04:13,360 --> 00:04:15,180
+should find a babel plugin for that
+50
+
+51
+00:04:15,290 --> 00:04:21,140
+and dd it to the list of plugins here. We can use as many babel plugins as we want.
+51
+
+52
+00:04:21,140 --> 00:04:26,840
+No we need to install babel-core, babel-loader, babel-preset and transform-class-properties
+52
+
+53
+00:04:26,910 --> 00:04:27,480
+babel plugin.
+53
+
+54
+00:04:27,550 --> 00:04:31,600
+So I'm going to my terminal and I will install all this stuff.
+54
+
+55
+00:04:50,600 --> 00:04:55,910
+If we run Webpack now, it will use babel-loader for our JavaScript files, and if it happens that our
+55
+
+56
+00:04:55,910 --> 00:05:01,460
+javascript uses newest features that are not in official specification yet, Webpack we'll convert that
+56
+
+57
+00:05:01,460 --> 00:05:06,080
+code to older javascript which is understood by all browsers and NodeJS.
+57
+
+58
+00:05:11,450 --> 00:05:13,060
+This time our build works fine.
+58
+
+59
+00:05:13,070 --> 00:05:16,720
+Let's go to the browser now and check if everything is still OK there.
+59
+
+60
+00:05:18,210 --> 00:05:19,340
+I will refresh my page...
+60
+
+61
+00:05:27,040 --> 00:05:29,690
+As you can see everything is working. In this video
+61
+
+62
+00:05:29,710 --> 00:05:34,390
+we have learned how to use modern javascript features in our project even though this features are so
+62
+
+63
+00:05:34,390 --> 00:05:38,190
+new that they haven't been included in the official script specification yet!

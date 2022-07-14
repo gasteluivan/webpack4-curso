@@ -1,0 +1,187 @@
+1
+00:00:00,910 --> 00:00:07,390
+In the previous video video and how we can use mullet auction in order to change what behavior for production
+
+2
+00:00:07,450 --> 00:00:08,890
+and development builds.
+
+3
+00:00:08,920 --> 00:00:15,610
+First we changed the mold auction indirect configuration to production and then to development following
+
+4
+00:00:15,610 --> 00:00:21,190
+this practice we would need to set mold auction to development while developing our application and
+
+5
+00:00:21,190 --> 00:00:22,670
+change it to production.
+
+6
+00:00:22,690 --> 00:00:27,220
+Every time we want to deploy the application this is not very convenient.
+
+7
+00:00:27,220 --> 00:00:33,160
+In this video I will show you how to manage effectively different configurations for production and
+
+8
+00:00:33,220 --> 00:00:40,720
+development deals we can create two separate configuration files one for production builds and one for
+
+9
+00:00:40,720 --> 00:00:42,310
+development builds.
+
+10
+00:00:42,310 --> 00:00:45,940
+So we name our PAC not contact the J.
+
+11
+00:00:45,940 --> 00:00:50,920
+S to let the production the conflict that J S
+
+12
+00:01:00,770 --> 00:01:03,080
+and you also create one more file.
+
+13
+00:01:03,310 --> 00:01:06,170
+What that that the quantity the J.
+
+14
+00:01:06,170 --> 00:01:06,560
+S
+
+15
+00:01:15,660 --> 00:01:19,720
+or now I do copy everything from the production configuration into this file
+
+16
+00:01:25,610 --> 00:01:28,370
+however we need to adjust these configurations.
+
+17
+00:01:28,730 --> 00:01:35,840
+Let's adjust our production configuration really to set mold auction to production.
+
+18
+00:01:41,390 --> 00:01:45,140
+We can safely remove to support in the cost in production mode.
+
+19
+00:01:45,140 --> 00:01:54,870
+This plugin is included by default you can also remove a set of plugin from imports everyone else in
+
+20
+00:01:54,870 --> 00:01:57,090
+this file is suitable for production.
+
+21
+00:01:57,210 --> 00:02:01,360
+So our production configuration was built.
+
+22
+00:02:01,490 --> 00:02:05,810
+Now let's go to the development configuration and remove everything that you don't need.
+
+23
+00:02:08,790 --> 00:02:13,560
+When you put change multifunction to development and it is a lot of development.
+
+24
+00:02:14,090 --> 00:02:22,540
+So now we need to remove content from here because we don't need to handle other occasions during development.
+
+25
+00:02:23,720 --> 00:02:30,990
+We can also remove our surplus from London's every because they don't need to modify our code during
+
+26
+00:02:30,990 --> 00:02:35,050
+development and also remove it from imports.
+
+27
+00:02:35,050 --> 00:02:41,500
+Here you don't need to extract all our sea assets into a separate file as well.
+
+28
+00:02:44,480 --> 00:02:47,920
+So I will remove this USS extra one from here.
+
+29
+00:02:50,710 --> 00:02:59,110
+And from here you also need to replace this one in the rules and I will replace this style order
+
+30
+00:03:04,600 --> 00:03:07,890
+all this changes should make our development faster.
+
+31
+00:03:07,960 --> 00:03:13,270
+It won't notice any difference in our small application but in bigger applications the difference can
+
+32
+00:03:13,270 --> 00:03:14,200
+be significant.
+
+33
+00:03:15,580 --> 00:03:21,220
+Since we now get two different configuration files it also need the ability to run them separately.
+
+34
+00:03:21,220 --> 00:03:27,130
+This can be easily done using NPM scripts so I'll go to the package Jason File
+
+35
+00:03:30,160 --> 00:03:38,080
+and here we have our streets and for now the arbitration panel in one script which is built I will continue
+
+36
+00:03:38,140 --> 00:03:41,380
+using this script for production purposes.
+
+37
+00:03:41,380 --> 00:03:44,650
+So here I need to specify our production configuration
+
+38
+00:03:55,930 --> 00:03:57,720
+and I'll create one more script
+
+39
+00:04:04,930 --> 00:04:08,980
+but here I will specify the development configuration.
+
+40
+00:04:09,030 --> 00:04:11,560
+Now let's check these two NPM scripts.
+
+41
+00:04:11,580 --> 00:04:12,780
+I don't go to the terminal
+
+42
+00:04:20,290 --> 00:04:21,810
+production but it works fine.
+
+43
+00:04:21,820 --> 00:04:23,410
+Let's now check development build
+
+44
+00:04:27,390 --> 00:04:28,140
+development build.
+
+45
+00:04:28,170 --> 00:04:29,450
+Also works fine.
+
+46
+00:04:29,490 --> 00:04:35,420
+So in this video we have created two separate configurations for production and development.
+
+47
+00:04:35,610 --> 00:04:41,520
+At this point we have fully fledged configurations specifically targeting single page application.

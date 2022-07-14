@@ -1,0 +1,249 @@
+0
+1
+00:00:01,270 --> 00:00:09,490
+In this video we're going to create our own template for generating html files.
+1
+
+2
+00:00:09,640 --> 00:00:13,630
+First of all we need to decide which template engine we are going to use.
+2
+
+3
+00:00:13,630 --> 00:00:22,710
+There are plenty of template engines out there. You can use pug, ejs, underscore, handlebars and
+3
+
+4
+00:00:22,710 --> 00:00:23,580
+so on.
+4
+
+5
+00:00:23,580 --> 00:00:26,370
+All of them will give you similar results.
+5
+
+6
+00:00:26,370 --> 00:00:29,530
+Which one to use is just a matter of personal preference.
+6
+
+7
+00:00:30,320 --> 00:00:31,970
+I like handlebars the most.
+7
+
+8
+00:00:32,100 --> 00:00:34,620
+So in this course we are going to use handlebars
+8
+
+9
+00:00:38,130 --> 00:00:45,170
+handlebars is a template engine for javascript that allows you to separate the business logic from presentation.
+9
+
+10
+00:00:45,170 --> 00:00:51,260
+If you find yourself generating html inside your javascript then you probably need some kind
+10
+
+11
+00:00:51,260 --> 00:00:52,910
+of template engine.
+11
+
+12
+00:00:52,970 --> 00:00:55,980
+Let's create our first handlebars template.
+12
+
+13
+00:00:56,060 --> 00:00:59,750
+We are going to create this template inside the src folder.
+13
+
+14
+00:01:13,280 --> 00:01:13,850
+hbs is
+14
+
+15
+00:01:13,850 --> 00:01:23,140
+an extension for handlebars templates. I will copy the html markup from the generated html file
+15
+
+16
+00:01:23,230 --> 00:01:24,250
+and put it here.
+16
+
+17
+00:01:31,430 --> 00:01:32,660
+Let's improve formatting
+17
+
+18
+00:01:32,680 --> 00:01:33,020
+a bit.
+18
+
+19
+00:01:51,070 --> 00:01:54,100
+We also need to remove the references to the bundles.
+19
+
+20
+00:01:59,330 --> 00:02:03,430
+Webpack will add these references automatically during the build process.
+20
+
+21
+00:02:04,340 --> 00:02:10,370
+The names of the generated files will be different each time because we are using md5 hash
+21
+
+22
+00:02:10,380 --> 00:02:12,060
+in the bundle name.
+22
+
+23
+00:02:12,230 --> 00:02:18,800
+You can put everything you need inside this handlebars file. Webpack will use it as a template while generating
+23
+
+24
+00:02:18,870 --> 00:02:22,580
+an html file during the build process.
+24
+
+25
+00:02:22,790 --> 00:02:29,210
+In our case I will leave the template as it is, but I'll change the title and description in order to
+25
+
+26
+00:02:29,210 --> 00:02:30,310
+use handlebars
+26
+
+27
+00:02:30,320 --> 00:02:50,450
+variables.
+27
+
+28
+00:02:50,610 --> 00:02:53,220
+This is the handlebars variable.
+28
+
+29
+00:02:53,440 --> 00:02:56,910
+We'll assign this variable in the Webpack configuration.
+29
+
+30
+00:02:59,870 --> 00:03:14,400
+I will also put the handlebars variable instead of the title.
+30
+
+31
+00:03:14,410 --> 00:03:22,970
+Now let's tell Webpack to use our template while generating the html file. I will go to the Webpack configuration.
+31
+
+32
+00:03:27,950 --> 00:03:31,430
+And here you I will pass a new option which is called template.
+32
+
+33
+00:03:40,010 --> 00:03:45,160
+Here I specified to path to the file that we just created.
+33
+
+34
+00:03:45,200 --> 00:03:48,470
+We also need to provide the description variable.
+34
+
+35
+00:03:48,470 --> 00:03:51,290
+It should be specified on the same level as title.
+35
+
+36
+00:03:57,320 --> 00:04:01,910
+Webpack will take handlebars variables from here and here.
+36
+
+37
+00:04:05,990 --> 00:04:08,670
+Since we are using a new type of file here,
+37
+
+38
+00:04:08,690 --> 00:04:13,150
+HBS, we need to teach Webpack how to handle this type of file.
+38
+
+39
+00:04:28,700 --> 00:04:32,760
+We are going to use a new loader here which is called handlebars loader.
+39
+
+40
+00:04:37,660 --> 00:04:40,990
+And since we are using a new loader we need to install it.
+40
+
+41
+00:04:58,190 --> 00:05:01,160
+We also need to install handlebars package itself.
+41
+
+42
+00:05:10,580 --> 00:05:13,280
+Let's run the build process and see what happens.
+42
+
+43
+00:05:18,510 --> 00:05:20,220
+It seems everything works fine.
+43
+
+44
+00:05:20,280 --> 00:05:26,100
+Let's go check the dist folder.
+44
+
+45
+00:05:26,150 --> 00:05:36,070
+We still have index.html inside the dist folder. Let's look inside. This time Webpack used our own
+45
+
+46
+00:05:36,070 --> 00:05:38,610
+template for generating this file.
+46
+
+47
+00:05:38,620 --> 00:05:54,160
+Let's have a look at it in the browser.
+47
+
+48
+00:05:54,300 --> 00:05:56,030
+It seems everything  still works.
+48
+
+49
+00:05:56,040 --> 00:05:57,210
+Congratulations!
+49
+
+50
+00:05:57,210 --> 00:06:02,820
+In this video we learned how to tell Webpack to use our own template while generating html.

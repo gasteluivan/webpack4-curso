@@ -1,0 +1,244 @@
+0
+1
+00:00:00,180 --> 00:00:05,640
+In the previous videos we have learned how to set up production configuration for multiple page applications.
+1
+
+2
+00:00:05,640 --> 00:00:11,250
+As a result after every build we are getting several html files for several web pages.
+2
+
+3
+00:00:11,250 --> 00:00:16,890
+Previously in this course we have seen how convenient it is to get fast feedback about our code changes.
+3
+
+4
+00:00:16,980 --> 00:00:22,520
+In this video we will learn how to setup development configuration for multiple page applications.
+4
+
+5
+00:00:22,650 --> 00:00:23,530
+Let's go to the webpack.dev.config.js
+5
+
+6
+00:00:23,530 --> 00:00:31,600
+and change some things there. First we need to put two entry points instead
+6
+
+7
+00:00:31,600 --> 00:00:39,110
+of one. So I will replace this string with a javascript object which we have already seen.
+7
+
+8
+00:00:43,420 --> 00:00:44,200
+And here
+8
+
+9
+00:00:44,260 --> 00:00:46,300
+We'll have only two properties.
+9
+
+10
+00:00:48,830 --> 00:00:49,480
+hello-world
+10
+
+11
+00:00:52,860 --> 00:00:55,100
+which will point to our.
+11
+
+12
+00:00:55,150 --> 00:00:55,960
+hello-world.js file,
+12
+
+13
+00:00:59,220 --> 00:01:02,990
+and kiwi, which will point to our kiwi.js file.
+13
+
+14
+00:01:08,540 --> 00:01:13,370
+Since we have two entry points now we need to adjust our output configuration.
+14
+
+15
+00:01:16,810 --> 00:01:21,730
+And I will just add here [name] .
+15
+
+16
+00:01:21,730 --> 00:01:24,690
+So now we have output file name
+16
+
+17
+00:01:24,890 --> 00:01:28,510
+[name].bundle.js.
+17
+
+18
+00:01:28,710 --> 00:01:31,020
+Now we need to add a second HtmlWebpackPlugin
+18
+
+19
+00:01:31,020 --> 00:01:35,490
+to the list of plugins. Because we have two html pages now. 
+19
+
+20
+00:01:39,060 --> 00:01:43,890
+First I will modify our first entry because we need to change something here.
+20
+
+21
+00:01:43,950 --> 00:01:55,070
+We need to specify file name which will be hello-world.html, and we also need to specify chunks
+21
+
+22
+00:01:57,860 --> 00:01:59,400
+which is an array.
+22
+
+23
+00:01:59,540 --> 00:02:03,250
+And here we will need a hello-world chunk.
+23
+
+24
+00:02:05,460 --> 00:02:10,410
+If you remember the chunk webpack takes from these entry points.
+24
+
+25
+00:02:15,180 --> 00:02:24,250
+And here we need to replace our index.hbs with page-template.hbs  because we renamed it before.
+25
+
+26
+00:02:24,360 --> 00:02:28,350
+So now we'll also need a second 
+26
+
+27
+00:02:28,480 --> 00:02:31,890
+HtmlWebpackPlugin here.
+27
+
+28
+00:02:32,220 --> 00:02:34,260
+This one would relate to our kiwi page.
+28
+
+29
+00:02:34,260 --> 00:02:40,070
+So I will rename this hello-world to the kiwi
+29
+
+30
+00:02:42,750 --> 00:02:45,690
+And we will also need kiwi chunk.
+30
+
+31
+00:02:49,240 --> 00:02:52,710
+I'll replace title as well as a description.
+31
+
+32
+00:02:55,460 --> 00:03:02,690
+And I believe template is the same because both our html files are using the same page template.
+32
+
+33
+00:03:05,770 --> 00:03:07,790
+And basically that's all we need to do.
+33
+
+34
+00:03:07,810 --> 00:03:12,460
+We don't need to split common dependencies into a separate bundle because this is the development build
+34
+
+35
+00:03:12,490 --> 00:03:18,130
+and all we care about is the speed of the build. Let's run our development build in the terminal and
+35
+
+36
+00:03:18,130 --> 00:03:20,530
+have a look at what we have in the browser
+36
+
+37
+00:03:34,530 --> 00:03:42,030
+Webpack tells us that project is running at a http://localhost:9000 so I'll copy
+37
+
+38
+00:03:42,030 --> 00:03:49,210
+this url and go to our browser now and I will paste this url into the navigation bar.
+38
+
+39
+00:03:52,660 --> 00:03:58,090
+And as we can see there is nothing at our main url now, but we can open different pages using
+39
+
+40
+00:03:58,090 --> 00:04:02,720
+different urls. First I will go to our hello-world.html page.
+40
+
+41
+00:04:02,920 --> 00:04:09,000
+I will add slash hello-world.html. 
+41
+
+42
+00:04:09,070 --> 00:04:15,440
+This is totally the same as the name of our html page that we generated in the dist folder.
+42
+
+43
+00:04:17,950 --> 00:04:23,720
+And now we can see that our hello-world page works perfectly. When they click on the button, we see the
+43
+
+44
+00:04:23,730 --> 00:04:32,080
+red text appearing.  So let's now check our kiwi page. I will replace hello-world.html with
+44
+
+45
+00:04:32,080 --> 00:04:32,500
+kiwi.html.
+45
+
+46
+00:04:36,040 --> 00:04:41,940
+And now we can see that our kiwi page also works. In this video
+46
+
+47
+00:04:42,030 --> 00:04:46,980
+we have learned how to set up development configuration for multiple page applications. At this point
+47
+
+48
+00:04:46,980 --> 00:04:52,770
+we have fully fledged webpack configurations for both production and development environments specifically
+48
+
+49
+00:04:52,840 --> 00:04:55,050
+targeting multiple page applications.

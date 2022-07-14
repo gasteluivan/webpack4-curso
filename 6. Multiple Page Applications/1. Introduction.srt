@@ -1,0 +1,79 @@
+0
+1
+00:00:01,350 --> 00:00:06,150
+Until this moment we have used webpack in order to take all our modules and put them together into
+1
+
+2
+00:00:06,150 --> 00:00:07,900
+a single bundle js file.
+2
+
+3
+00:00:07,980 --> 00:00:12,130
+As a result this bundle JS contains all our javascript code.
+3
+
+4
+00:00:12,150 --> 00:00:16,570
+This approach is widely used when there is a need to create a single page application.
+4
+
+5
+00:00:16,710 --> 00:00:20,050
+But this is not the only usage of Webpack. In some projects
+5
+
+6
+00:00:20,070 --> 00:00:26,130
+we need to have more than one html page. Especially if these pages are rendered on the server side
+6
+
+7
+00:00:26,520 --> 00:00:31,780
+Then most probably server sends different pages to the browser depending on the url that you write
+7
+
+8
+00:00:31,830 --> 00:00:33,350
+in the navigation bar.
+8
+
+9
+00:00:33,690 --> 00:00:39,800
+Like for example if we go to our Hello World page, then we see our hello world button.
+9
+
+10
+00:00:39,810 --> 00:00:44,320
+And if we go to a separate kiwi page, we'll see our Kiwi image.
+10
+
+11
+00:00:44,370 --> 00:00:48,420
+Remember? we imported this image early at the beginning of this course.
+11
+
+12
+00:00:48,720 --> 00:00:51,890
+By the way, this two pages may also have something in common.
+12
+
+13
+00:00:51,900 --> 00:00:54,300
+For example lodash library.
+13
+
+14
+00:00:54,300 --> 00:00:58,120
+Then we need to find out how to handle this common dependencies as well.
+14
+
+15
+00:00:59,650 --> 00:01:05,680
+In this section we'll learn how to split our javascript code into multiple bundles and create multiple
+15
+
+16
+00:01:05,680 --> 00:01:08,740
+html files for different pages of our website.

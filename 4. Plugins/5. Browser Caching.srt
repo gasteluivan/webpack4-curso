@@ -1,0 +1,279 @@
+0
+1
+00:00:01,400 --> 00:00:07,580
+In this video we are going to talk about browser caching and how Webpack can help us with that. This time
+1
+
+2
+00:00:07,580 --> 00:00:11,690
+We'll start with the theory before writing any code. As you might know,
+2
+
+3
+00:00:11,960 --> 00:00:17,880
+every time your browser loads a website, it downloads all the assets required by this Website.
+3
+
+4
+00:00:18,040 --> 00:00:19,490
+Each Website is different.
+4
+
+5
+00:00:19,640 --> 00:00:24,840
+However most of them require some javascript and css in order to work properly.
+5
+
+6
+00:00:25,370 --> 00:00:28,800
+And some Websites require lots of JavaScript.
+6
+
+7
+00:00:28,970 --> 00:00:35,900
+Each time the user reloads the page, their browser downloads all those files from the Internet.
+7
+
+8
+00:00:35,900 --> 00:00:41,660
+This may become an issue, especially if your customers browse your website using mobile devices
+8
+
+9
+00:00:41,660 --> 00:00:44,050
+with slow internet connection.
+9
+
+10
+00:00:44,150 --> 00:00:49,220
+Each time they go to a new page they need to wait several minutes until the page is ready.
+10
+
+11
+00:00:51,410 --> 00:00:54,310
+Fortunately there is a solution to this problem.
+11
+
+12
+00:00:54,350 --> 00:00:56,770
+And it's called browser caching.
+12
+
+13
+00:00:56,960 --> 00:01:03,440
+If the file didn't change between the page reloads, your browser can save it in a specific place.
+13
+
+14
+00:01:03,440 --> 00:01:05,370
+This place is called cache.
+14
+
+15
+00:01:05,690 --> 00:01:10,340
+When you open this page again browser won't download this file again.
+15
+
+16
+00:01:10,490 --> 00:01:12,850
+It will take this file from cache.
+16
+
+17
+00:01:12,860 --> 00:01:16,230
+This technique helps to save lots of time and traffic.
+17
+
+18
+00:01:17,100 --> 00:01:19,960
+However this may lead to another issue.
+18
+
+19
+00:01:20,040 --> 00:01:25,860
+What if you fixed a bug on your Website and your javascript file has been changed? If the browser always
+19
+
+20
+00:01:25,860 --> 00:01:30,240
+takes this file from cache your customers will never get the new version.
+20
+
+21
+00:01:30,780 --> 00:01:34,670
+Therefore we need a mechanism for updating the cache.
+21
+
+22
+00:01:34,830 --> 00:01:39,930
+One of the most popular approaches is creating a new file with the new name
+22
+
+23
+00:01:39,930 --> 00:01:45,060
+each time you make a change. Browsers remember files by name.
+23
+
+24
+00:01:45,060 --> 00:01:50,180
+Therefore if the name changes browsers will download the new version.
+24
+
+25
+00:01:50,250 --> 00:01:56,290
+Well it doesn't mean that we need to change the filename manually every time we change our code.
+25
+
+26
+00:01:56,460 --> 00:01:58,350
+We can do this automatically.
+26
+
+27
+00:01:59,940 --> 00:02:02,400
+Let's go to the webpack configuration file.
+27
+
+28
+00:02:07,940 --> 00:02:14,140
+One of the best practices is to add md5 hash to the name of the file. this md5 cache
+28
+
+29
+00:02:14,240 --> 00:02:16,690
+depends on the contents of the file.
+29
+
+30
+00:02:16,880 --> 00:02:22,010
+This way back will generate the new filename only if there are some changes inside.
+30
+
+31
+00:02:22,730 --> 00:02:28,760
+It's easy to explain my example. Imagine you changed something in your css but you didn't touch
+31
+
+32
+00:02:28,760 --> 00:02:30,140
+your javascript.
+32
+
+33
+00:02:30,140 --> 00:02:36,740
+In this case webpack will generate the new name for your CSS file but it will use the previous name
+33
+
+34
+00:02:36,890 --> 00:02:44,150
+for a javascript file, and during the next page reload your customers will download the new CSS file
+34
+
+35
+00:02:44,260 --> 00:02:51,140
+but they will get the javascript file from cache. In order for this to work, we just need to add [contenthash]
+35
+
+36
+00:02:51,140 --> 00:03:00,770
+in square brackets to the output file name.
+36
+
+37
+00:03:00,790 --> 00:03:04,430
+Now let's run webpack in the terminal and check the dist folder
+37
+
+38
+00:03:18,380 --> 00:03:22,610
+You see, we have two JavaScript files in the dist folder.
+38
+
+39
+00:03:22,760 --> 00:03:33,530
+One is bundle.JS and another one is bundle dot some strange sequence of characters dot J S.
+39
+
+40
+00:03:33,590 --> 00:03:38,150
+This sequence of characters is md5 hash and it stays the same
+40
+
+41
+00:03:38,150 --> 00:03:43,660
+if there were no code changes. Let's run webpack again and have a look at the dist folder
+41
+
+42
+00:03:43,700 --> 00:03:44,680
+one more time.
+42
+
+43
+00:03:51,650 --> 00:03:56,840
+I just run webpack and we still have the same JavaScript files in the dist folder.
+43
+
+44
+00:03:59,190 --> 00:04:01,920
+Let's now change something inside our javascript.
+44
+
+45
+00:04:15,170 --> 00:04:17,890
+I've added only one line of code here.
+45
+
+46
+00:04:17,930 --> 00:04:28,630
+Let's run webpack again and have a look at the dist folder.
+46
+
+47
+00:04:28,640 --> 00:04:32,530
+Now we have 3 JavaScript files in the dist folder.
+47
+
+48
+00:04:32,550 --> 00:04:35,420
+That's because Webpack generated the new javascript
+48
+
+49
+00:04:35,450 --> 00:04:45,450
+file with different md5 hash. Now let's remove this line of code. It was needed for demonstration
+49
+
+50
+00:04:45,450 --> 00:04:48,540
+purposes. By the way
+50
+
+51
+00:04:48,620 --> 00:04:51,290
+this also works for CSS files.
+51
+
+52
+00:04:51,290 --> 00:04:55,970
+We just need to add contenthash in square brackets to the
+52
+
+53
+00:04:55,990 --> 00:04:57,830
+MiniCssExtractPlugin configuration.
+53
+
+54
+00:05:10,410 --> 00:05:13,470
+Let's run webpack again and have a look at the dist folder.
+54
+
+55
+00:05:24,080 --> 00:05:31,550
+Now there is another css file in the dist folder, and this css file contains md5 hash
+55
+
+56
+00:05:31,610 --> 00:05:32,110
+as well.

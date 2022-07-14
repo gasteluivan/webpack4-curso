@@ -1,0 +1,144 @@
+0
+1
+00:00:00,390 --> 00:00:05,110
+In this video we will think about Why. Why do we need Webpack at all?
+1
+
+2
+00:00:05,130 --> 00:00:09,250
+Back in the days when dinosaurs were walking on Earth and nobody heard about an iPhone,
+2
+
+3
+00:00:09,300 --> 00:00:11,850
+web applications look like this.
+3
+
+4
+00:00:11,850 --> 00:00:17,190
+Here we can see that several CSS files are included at the top of the HTML file. But that is not the
+4
+
+5
+00:00:17,190 --> 00:00:18,540
+first thing here.
+5
+
+6
+00:00:18,590 --> 00:00:21,130
+Do you see how many JavaScript files we have here?
+6
+
+7
+00:00:21,150 --> 00:00:26,230
+Eleven! Eleven! And some of them depend on each other!
+7
+
+8
+00:00:26,280 --> 00:00:31,080
+Of course it is easy to tell that almost everything probably depends on the common.js because of
+8
+
+9
+00:00:31,080 --> 00:00:33,420
+its name. But would you guess in the first 5 minutes
+9
+
+10
+00:00:33,430 --> 00:00:40,190
+that's the shipping.js depends on user.js  because user.js handles the address of the customer?
+10
+
+11
+00:00:41,180 --> 00:00:44,300
+If you accidentally change the order of the JavaScript files,
+11
+
+12
+00:00:44,300 --> 00:00:48,190
+this project might break. When I only started my career,
+12
+
+13
+00:00:48,190 --> 00:00:55,630
+all that applications look like this. But then we started to use grunt and gulp. These tools helped us to
+13
+
+14
+00:00:55,630 --> 00:01:00,970
+manage assets and  concatenate all our JavaScript files into one. But they still can't figure out
+14
+
+15
+00:01:00,970 --> 00:01:02,880
+dependencies between those files.
+15
+
+16
+00:01:04,670 --> 00:01:09,560
+In order to manage JavaScript dependencies we used require.js which helps in a way. But it is
+16
+
+17
+00:01:09,560 --> 00:01:15,220
+not as powerful as Webpack. Webpack is a static module bundler for modern javascript applications.
+17
+
+18
+00:01:15,320 --> 00:01:20,420
+When Webpack processes your application, it recursively builds a dependency graph that includes every
+18
+
+19
+00:01:20,420 --> 00:01:26,500
+module in your application. And then packages all of those modules into one or more bundles.
+19
+
+20
+00:01:26,510 --> 00:01:31,540
+When I started using Webpack, most of my projects started to look like this.
+20
+
+21
+00:01:31,580 --> 00:01:37,280
+There are only 2 files here: 1 file for CSS and 1 file for JavaScript.
+21
+
+22
+00:01:37,400 --> 00:01:39,420
+There are no hidden dependencies.
+22
+
+23
+00:01:39,720 --> 00:01:42,990
+You don't have to worry about the correct order of the files anymore.
+23
+
+24
+00:01:43,040 --> 00:01:48,140
+There is only one JavaScript file we need to include! All dependencies, internal and external, are bundled
+24
+
+25
+00:01:48,140 --> 00:01:49,440
+inside this file.
+25
+
+26
+00:01:49,460 --> 00:01:55,100
+Basically, Webpack is a single tool for managing all of your code as well as assets in 1 place. It can
+26
+
+27
+00:01:55,100 --> 00:02:02,740
+handle javascript, typescript, coffeescript, CSS, SASS, LESS, images, and so much more! In 3 words, Webpack
+27
+
+28
+00:02:02,840 --> 00:02:07,280
+is all in one. I think by this point you already know why we need Webpack.
+28
+
+29
+00:02:07,310 --> 00:02:09,140
+Let's go further and learn how to use it.

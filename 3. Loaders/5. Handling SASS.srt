@@ -1,0 +1,119 @@
+0
+1
+00:00:01,160 --> 00:00:07,280
+In the previous video we have learned how to import CSS files inside our JavaScript.
+1
+
+2
+00:00:07,430 --> 00:00:13,220
+By the way we can also write our styles using SASS or LESS as well as other CSS preprocessors.
+2
+
+3
+00:00:13,220 --> 00:00:18,380
+I will show you how to import sass here, but you can easily use anything you want in your application.
+3
+
+4
+00:00:18,380 --> 00:00:23,500
+Let's go to our editor again and change our css into sass.
+4
+
+5
+00:00:23,550 --> 00:00:28,790
+First I would change file extension into scss and then I would use some variables for font size and
+5
+
+6
+00:00:28,790 --> 00:00:29,150
+color.
+6
+
+7
+00:00:48,790 --> 00:00:54,710
+We will play a bit and change text color to red. Don't forget to change the import statement on the
+7
+
+8
+00:00:54,710 --> 00:00:59,800
+javascript side.
+8
+
+9
+00:00:59,830 --> 00:01:07,330
+Now we need to create a rule for sass files. I copy this rule for css and slightly modify it.
+9
+
+10
+00:01:11,910 --> 00:01:14,280
+we need to add sass loader to the end of the chain.
+10
+
+11
+00:01:18,740 --> 00:01:21,770
+Pay attention to the order in which loaders appear in the array.
+11
+
+12
+00:01:21,860 --> 00:01:24,670
+Webpack processes loaders from right to left.
+12
+
+13
+00:01:24,680 --> 00:01:31,100
+So first Webpack will invoke sass loader which will convert our sass to css. And it will invoke
+13
+
+14
+00:01:31,210 --> 00:01:37,670
+css-loader which will take that converted css and convert it to the javascript representation. 
+14
+
+15
+00:01:37,700 --> 00:01:43,100
+And only then Webpack will invoke style-loader which will create style tags inside our HTML page and
+15
+
+16
+00:01:43,100 --> 00:01:44,970
+put the assets into it.
+16
+
+17
+00:01:45,380 --> 00:01:48,020
+Since we are using a new loader we have to install it
+17
+
+18
+00:01:59,330 --> 00:02:00,960
+So you guys need to run this command.
+18
+
+19
+00:02:01,040 --> 00:02:08,090
+I have already run this command before and I have sass loader installed, and this command takes some time.
+19
+
+20
+00:02:08,250 --> 00:02:13,090
+Now let's run Webpack again and go to browser and check if everything still works.
+20
+
+21
+00:02:18,930 --> 00:02:25,990
+I will refresh my page and make several clicks and we have red text there.
+21
+
+22
+00:02:26,040 --> 00:02:27,700
+So yes it works!
+22
+
+23
+00:02:27,720 --> 00:02:28,580
+Congratulations!
+23
+
+24
+00:02:28,590 --> 00:02:32,610
+In this video we have successfully learned how to import scss into our Javascript.

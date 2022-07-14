@@ -1,0 +1,219 @@
+1
+00:00:00,420 --> 00:00:03,500
+In the previous video we created a simple application.
+
+2
+00:00:03,500 --> 00:00:09,040
+It is one HDMI file and two JavaScript files in this video.
+
+3
+00:00:09,060 --> 00:00:13,300
+We are going to integrate that into our application.
+
+4
+00:00:13,300 --> 00:00:15,290
+Let's have a look at our index.
+
+5
+00:00:15,550 --> 00:00:17,120
+HDMI out.
+
+6
+00:00:17,410 --> 00:00:23,140
+There are only two JavaScript files in the project and we already have to remember the order in which
+
+7
+00:00:23,200 --> 00:00:25,750
+we need to put our script tags.
+
+8
+00:00:25,870 --> 00:00:32,590
+Imagine that we have 20 JavaScript files or even 50 JavaScript files maintained in such kind of a project
+
+9
+00:00:32,800 --> 00:00:34,730
+would quickly become a nightmare.
+
+10
+00:00:34,960 --> 00:00:37,890
+And these numbers are not exaggerated.
+
+11
+00:00:37,930 --> 00:00:46,480
+For example one of my latest projects consists of 44 internal modules and 36 external dependencies.
+
+12
+00:00:46,510 --> 00:00:53,380
+Luckily wetback can manage all those dependencies for us and conveniently bundle them into a single
+
+13
+00:00:53,440 --> 00:00:59,000
+JavaScript file that includes all of the code needed for the application.
+
+14
+00:00:59,110 --> 00:00:59,950
+Rat Pack.
+
+15
+00:01:00,040 --> 00:01:06,520
+We don't have to include so many different dependencies as script takes in a specific order.
+
+16
+00:01:06,520 --> 00:01:12,250
+We only need to include one JavaScript file that includes all other dependencies.
+
+17
+00:01:12,250 --> 00:01:18,520
+This file is an entry point for all your dependencies and you don't have to remember the order of the
+
+18
+00:01:18,520 --> 00:01:19,830
+files were back.
+
+19
+00:01:19,870 --> 00:01:21,570
+We'll sort that out for you.
+
+20
+00:01:22,240 --> 00:01:30,130
+So let's install what back but before that we need to generate a simple package not Jason File for our
+
+21
+00:01:30,130 --> 00:01:31,120
+project.
+
+22
+00:01:31,120 --> 00:01:37,810
+The package that Jason keeps track of all dependencies needed for the application including right back
+
+23
+00:01:38,410 --> 00:01:42,550
+in order to do that we need to go to the terminal end to run a simple comment
+
+24
+00:01:47,490 --> 00:01:53,010
+this comment will generate the default package not Jason for our project.
+
+25
+00:01:53,010 --> 00:01:54,870
+Now we can install wetback
+
+26
+00:01:58,690 --> 00:02:05,460
+I am installing two packages here one is pack and another one is wetback minus si a line
+
+27
+00:02:10,530 --> 00:02:19,860
+and I am using minus minus save minus the option minus minus save minus that option will add work back
+
+28
+00:02:20,100 --> 00:02:24,630
+to the package that Jason has a development dependency.
+
+29
+00:02:24,630 --> 00:02:30,330
+If another developer would like to work on this project then you'll see all the dependencies listed
+
+30
+00:02:30,360 --> 00:02:31,440
+inside the package.
+
+31
+00:02:31,500 --> 00:02:40,270
+Jason what's more they will be able to install all these dependencies using a single command.
+
+32
+00:02:40,500 --> 00:02:49,120
+Now when my back is included inside our application we need to configure it what bag stores its configuration
+
+33
+00:02:49,330 --> 00:02:58,150
+in a javascript file typically named by PAC not config not J S let's create this file.
+
+34
+00:02:58,450 --> 00:03:02,260
+I'm going to create this file in the root director of the project
+
+35
+00:03:08,300 --> 00:03:21,350
+now I need to specify a minimal pack configuration inside this file.
+
+36
+00:03:21,370 --> 00:03:24,370
+This is an object inside this object.
+
+37
+00:03:24,370 --> 00:03:27,450
+We can specify multiple configuration options.
+
+38
+00:03:27,490 --> 00:03:30,010
+First option is going to be an entry point
+
+39
+00:03:43,500 --> 00:03:50,520
+this file usually imports all other dependencies pack it will start from this file when running as build
+
+40
+00:03:50,530 --> 00:03:51,490
+process.
+
+41
+00:03:51,810 --> 00:04:00,310
+In our case this is index that J is the second option is an output file.
+
+42
+00:04:00,450 --> 00:04:07,660
+Here we can specify a name on the file which will be generated as a result of the pack build and passed
+
+43
+00:04:07,680 --> 00:04:11,640
+to the directory where this file should be generated.
+
+44
+00:04:11,790 --> 00:04:19,220
+In our case this is bundle that J S which will be generated inside the list directory
+
+45
+00:04:29,360 --> 00:04:36,910
+so after that back runs it will generate a file named bundle that J has inside of the directory named
+
+46
+00:04:37,190 --> 00:04:37,580
+D
+
+47
+00:04:40,350 --> 00:04:45,060
+Westpac will automatically create this directory if it does not exist.
+
+48
+00:04:45,560 --> 00:04:50,780
+And the last mandatory option is mode for now.
+
+49
+00:04:50,780 --> 00:04:57,530
+I have specified none here but later in this course I will explain why we need this option and how to
+
+50
+00:04:57,530 --> 00:05:07,070
+use it in order to run a pack more conveniently we can create a script inside package that Jason.
+
+51
+00:05:07,880 --> 00:05:14,210
+If I go to the package not Jason I will see a list of scripts here for now.
+
+52
+00:05:14,210 --> 00:05:17,880
+There is on the test script which does nothing.
+
+53
+00:05:18,080 --> 00:05:23,330
+It was automatically generated by default when we created our package that Jason
+
+54
+00:05:29,390 --> 00:05:37,850
+so I will add a new script here named built every time if you run this script it will just run right
+
+55
+00:05:37,890 --> 00:05:38,890
+back for us.

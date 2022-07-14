@@ -1,0 +1,254 @@
+0
+1
+00:00:00,390 --> 00:00:05,130
+In the previous video we have learned how to split our javascript code into multiple bundles.
+1
+
+2
+00:00:05,130 --> 00:00:11,310
+But if you run webpack now, you will see that all our bundles are included inside one html file which
+2
+
+3
+00:00:11,310 --> 00:00:12,850
+is index.html.
+3
+
+4
+00:00:12,930 --> 00:00:22,390
+Let's check it. I run my build now. I will go to the editor and check our dist folder.
+4
+
+5
+00:00:24,210 --> 00:00:25,910
+And here we have index.html.
+5
+
+6
+00:00:25,940 --> 00:00:31,590
+And if I open it, I clearly see that all our javascript bundles
+6
+
+7
+00:00:31,680 --> 00:00:32,280
+hello-world.js
+7
+
+8
+00:00:32,300 --> 00:00:42,990
+and kiwi.js are included inside this single file. And the same with css files. Both of them are here.
+8
+
+9
+00:00:43,000 --> 00:00:50,210
+However, we would need to generate two different html pages if we need proper multiple page
+9
+
+10
+00:00:50,240 --> 00:00:57,110
+application. One page would be Hello World page and the other one would be kiwi html page.
+10
+
+11
+00:00:57,110 --> 00:01:03,290
+In this video we will learn how we can generate multiple html files and include different bundles inside different
+11
+
+12
+00:01:03,430 --> 00:01:04,510
+html files.
+12
+
+13
+00:01:06,360 --> 00:01:09,040
+Let's go to our Webpack production config.
+13
+
+14
+00:01:09,090 --> 00:01:11,910
+And check our configuration for the  HtmlWebpackPlugin.
+14
+
+15
+00:01:17,450 --> 00:01:21,730
+I'm going down to the plugins array and I see here
+15
+
+16
+00:01:21,770 --> 00:01:23,320
+Our HtmlWebpackPlugin.
+16
+
+17
+00:01:23,750 --> 00:01:29,450
+But if we want to generate 2 html files, we need to include HtmlWebpackPlugin twice in the
+17
+
+18
+00:01:29,460 --> 00:01:30,410
+plugins array.
+18
+
+19
+00:01:31,280 --> 00:01:41,680
+So I will add a second instance of this plugin here.
+19
+
+20
+00:01:41,720 --> 00:01:46,300
+Now we need to differentiate between the two instances of HtmlWebpackPlugin.
+20
+
+21
+00:01:46,430 --> 00:01:54,640
+The best solution here is to provide different file names. Our first instance would have a file name
+21
+
+22
+00:01:54,670 --> 00:01:56,110
+hello-world.html.
+22
+
+23
+00:02:06,740 --> 00:02:13,480
+And title would be hello world, description would still be hello world, and template...
+23
+
+24
+00:02:13,720 --> 00:02:21,170
+We are using an index.hbs here, but I think we need to rename it, because it's no longer index anymore.
+24
+
+25
+00:02:21,320 --> 00:02:29,990
+So I will just rename it to something more generic like page-template.hbs.
+25
+
+26
+00:02:33,050 --> 00:02:33,640
+And here
+26
+
+27
+00:02:33,650 --> 00:02:38,140
+I will also use page-template.hbs.
+27
+
+28
+00:02:38,700 --> 00:02:43,070
+So now we need to adjust to the second instance of HtmlWebpackPlugin.
+28
+
+29
+00:02:43,140 --> 00:02:44,480
+Also provide a filename
+29
+
+30
+00:02:44,480 --> 00:02:44,850
+here.
+30
+
+31
+00:02:47,540 --> 00:02:59,540
+And it will be kiwi.html, and Title I will change to "Kiwi". And the same with description. I will
+31
+
+32
+00:02:59,550 --> 00:03:00,680
+also use here
+32
+
+33
+00:03:00,710 --> 00:03:03,420
+page-template.hbs as a template.
+33
+
+34
+00:03:06,810 --> 00:03:07,280
+Cool.
+34
+
+35
+00:03:08,410 --> 00:03:15,010
+But now how do we know which bundles to include in this file name, in the hello-world.html,
+35
+
+36
+00:03:15,040 --> 00:03:18,800
+and which bundles include inside kiwi.html?
+36
+
+37
+00:03:18,970 --> 00:03:24,970
+HtmlWebpackPlugin has a special option here called chunks where we can specify which bundles
+37
+
+38
+00:03:24,970 --> 00:03:28,740
+exactly we would need to include inside this html page.
+38
+
+39
+00:03:28,750 --> 00:03:36,710
+So I will add these configuration options here. Chunks and this is an array, so actually you can specify
+39
+
+40
+00:03:36,710 --> 00:03:45,380
+multiple chunks, not only one. But in our case we need the only one chunk now which is hello world
+40
+
+41
+00:03:45,380 --> 00:03:51,790
+n this example, and here it would be kiwi.
+41
+
+42
+00:03:58,590 --> 00:04:05,600
+Chunk names are specified here inside the entry point array, actually entry point object, sorry.
+42
+
+43
+00:04:11,880 --> 00:04:16,920
+So let's run webpack now and check how many html files we have afterwards.
+43
+
+44
+00:04:23,290 --> 00:04:26,460
+Let's go to our editor and check our dist folder one more time.
+44
+
+45
+00:04:31,660 --> 00:04:37,940
+And if we look inside dist folder we can see that now we have two html files in our dist folder.
+45
+
+46
+00:04:37,940 --> 00:04:43,670
+One html file is kiwi.html, and the other file is hello-world.html. Let's have a look at
+46
+
+47
+00:04:43,670 --> 00:04:50,810
+hello-world.html. And here we can see that we have only one css file included here which is 
+47
+
+48
+00:04:50,810 --> 00:04:57,210
+hello-world.<something>.css and only one JavaScript file included which is hello-world.<something>.js 
+48
+
+49
+00:04:57,430 --> 00:05:05,480
+If we have a look inside our kiwi.html file, we can see that here we also have only one
+49
+
+50
+00:05:05,590 --> 00:05:13,480
+css file an only one JavaScript file. So in this video we have learned how we can generate multiple
+50
+
+51
+00:05:13,480 --> 00:05:17,560
+html files and include different bundles inside different html files.
