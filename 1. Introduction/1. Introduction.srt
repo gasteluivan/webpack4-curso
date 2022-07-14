@@ -1,0 +1,124 @@
+0
+1
+00:00:00,770 --> 00:00:04,550
+Hi guys and girls! I hope you're having a wonderful day today.
+1
+
+2
+00:00:04,550 --> 00:00:09,500
+My name is Viktor and my goal is to help you understand stuff. In this course
+2
+
+3
+00:00:09,500 --> 00:00:12,020
+my goal is to help you understand Webpack,
+3
+
+4
+00:00:12,230 --> 00:00:15,630
+its main features, and how you can use it in your projects.
+4
+
+5
+00:00:15,660 --> 00:00:22,080
+We will be talking about Webpack 4 in this course, but before going further let me first introduce myself.
+5
+
+6
+00:00:22,340 --> 00:00:28,250
+I am a Senior Software Engineer specializing in JavaScript and various technologies around it.
+6
+
+7
+00:00:28,250 --> 00:00:35,270
+I am creating web applications for 12 years and during this years I have learned a lot of useful stuff.
+7
+
+8
+00:00:35,270 --> 00:00:37,810
+Now I want to share my knowledge with you.
+8
+
+9
+00:00:38,030 --> 00:00:43,460
+Now when you already know a bit about me, let me walk you through the structure of this course.
+9
+
+10
+00:00:43,580 --> 00:00:47,890
+At the beginning we'll create a small application with only 2 JavaScript files.
+10
+
+11
+00:00:47,960 --> 00:00:53,840
+This application will serve us as a model on which we can apply different Webpack features and see how we can
+11
+
+12
+00:00:53,840 --> 00:01:03,890
+handle real world use cases. Then we will create a very basic webpack configuration for our application.
+12
+
+13
+00:01:03,930 --> 00:01:11,000
+Then we will have a look at loaders and learn how to handle CSS, SASS, images, and other file types using
+13
+
+14
+00:01:11,020 --> 00:01:11,860
+webpack.
+14
+
+15
+00:01:12,030 --> 00:01:18,290
+We will also see how we can use latest cutting edge javascript features in our applications even though
+15
+
+16
+00:01:18,290 --> 00:01:22,150
+they are not implemented in all major browsers yet.
+16
+
+17
+00:01:22,160 --> 00:01:28,960
+After that we'll have a look at Webpack plugins and learn how we can extract all our CSS into a separate bundle.
+17
+
+18
+00:01:28,970 --> 00:01:35,740
+We will also learn how Webpack helps us with browser caching and how we can generate HTML files automatically
+18
+
+19
+00:01:35,750 --> 00:01:42,680
+with all the assets we need. Then we'll talk about differences between production and development builds
+19
+
+20
+00:01:42,890 --> 00:01:50,820
+and see how we can optimize our webpack configurations. Then we'll talk about multi page applications and
+20
+
+21
+00:01:50,820 --> 00:01:55,400
+code splitting in general. In the last section
+21
+
+22
+00:01:55,430 --> 00:02:01,290
+we will learn how to integrate express JS framework both for single page applications and for multiple
+22
+
+23
+00:02:01,290 --> 00:02:03,360
+page applications.
+23
+
+24
+00:02:03,360 --> 00:02:05,430
+It seems we have a lot to cover here.
+24
+
+25
+00:02:05,460 --> 00:02:07,710
+So let's start this wonderful journey together.
